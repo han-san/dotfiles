@@ -111,6 +111,7 @@
     enable = true;
     historyControl = [ "ignoredups" ];
     shellAliases = {
+      cp = "cp -iv";
       mv = "mv -iv";
       mkdir = "mkdir -pv";
       rmdir = "rmdir -pv";
