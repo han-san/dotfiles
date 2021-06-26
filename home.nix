@@ -105,13 +105,7 @@
     ];
   };
 
-  programs.firefox =
-    (let nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
-      inherit pkgs;
-    };
-    in  
-    import ./firefoxrc.nix nur.repos.rycee.firefox-addons);
-
+  programs.firefox = import ./firefoxrc.nix pkgs.nur.repos.rycee.firefox-addons;
 
   programs.bash = {
     enable = true;
