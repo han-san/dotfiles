@@ -223,6 +223,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.johan = {
     isNormalUser = true;
+    description = "Johan Sandred";
     extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
   };
 
