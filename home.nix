@@ -34,7 +34,7 @@
     sessionVariables = {
       LESSHISTFILE = "-";
       EDITOR = "kak";
-      CMAKE_BUILD_PARALLEL_LEVEL = 12;
+      CMAKE_BUILD_PARALLEL_LEVEL = 4;
       CMAKE_EXPORT_COMPILE_COMMANDS = 1;
     };
 
@@ -117,7 +117,7 @@
       rmdir = "rmdir -pv";
       rm = "rm -Iv";
 
-      make = "make -j12";
+      make = "make -j4";
       cmake = "cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1";
 
       ls = "ls --color=auto -h --group-directories-first";

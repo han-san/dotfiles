@@ -4,6 +4,15 @@
 
 { config, pkgs, ... }:
 
+let
+  nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload" ''
+    export __NV_PRIME_RENDER_OFFLOAD=1
+    export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
+    export __GLX_VENDOR_LIBRARY_NAME=nvidia
+    export __VK_LAYER_NV_optimus=NVIDIA_only
+    exec -a "$0" "$@"
+  '';
+in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -12,40 +21,22 @@
       <home-manager/nixos>
     ];
 
-  # Use the systemd-boot EFI boot loader.
-  boot.loader = {
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
+  # Use the GRUB 2 boot loader.
+  boot.loader.grub = {
+    enable = true;
+    version = 2;
+    # Define on which hard drive you want to install Grub.
+    device = "/dev/sda"; # or "nodev" for efi only
   };
-
-  fileSystems = {
-      # enable trim for SSDs
-      "/".options = [ "noatime" "nodiratime" "discard" ];
-      "/boot".options = [ "noatime" "nodiratime" "discard" ];
-
-      # mount internal drives
-      "/home/johan/Drives/NVMe" = {
-          device = "/dev/disk/by-uuid/862AB33C2AB32857";
-          fsType = "ntfs";
-          options = [ "noatime" "nodiratime" "discard" ]; # SSD trim
-      };
-
-      "/home/johan/Drives/Intern1" = {
-          device = "/dev/disk/by-uuid/38E420B0E42071F4";
-          fsType = "ntfs";
-      };
-
-      "/home/johan/Drives/Intern2" = {
-          device = "/dev/disk/by-uuid/7E3096073095C715";
-          fsType = "ntfs";
-      };
-  };
+  # boot.loader.grub.efiSupport = true;
+  # boot.loader.grub.efiInstallAsRemovable = true;
+  # boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
   # Set your time zone.
   time.timeZone = "Europe/Stockholm";
 
   networking = {
-    hostName = "johan-desktop"; # Define your hostname.
+    hostName = "hansan-laptop"; # Define your hostname.
 
     # The global useDHCP flag is deprecated, therefore explicitly set to false here.
     # Per-interface useDHCP will be mandatory in the future, so this generated config
@@ -56,7 +47,6 @@
       wlo1.useDHCP = true;
     };
 
-    networkmanager.enable = true;
   };
 
   # Select internationalisation properties.
@@ -101,19 +91,19 @@
   services = {
     xserver = {
       enable = true;
-      videoDrivers = [ "nvidia" ];
+      videoDrivers = [ "modesetting" "nvidia" ];
 
       # Configure keymap in X11
       layout = "us";
       xkbVariant = "colemak";
       # xkbOptions = "eurosign:e";
 
-      displayManager.gdm.enable = true;
-      desktopManager.gnome.enable = true;
-    };
+      displayManager.lightdm.enable = true;
+      desktopManager.xfce.enable = true;
 
-    # gnome systray
-    udev.packages = [ pkgs.gnome3.gnome-settings-daemon ];
+      # Enable touchpad support (enabled default in most desktopManager).
+      libinput.enable = true;
+    };
 
     # Enable CUPS to print documents.
     printing.enable = true;
@@ -121,6 +111,9 @@
     # Enable the OpenSSH daemon.
     openssh.enable = true;
   };
+
+  programs.nm-applet.enable = true; # Networking app for xfce.
+
 
   # Enable sound.
   sound.enable = true;
@@ -140,16 +133,20 @@
     # Other
     dunst #hm
     firefox #hm
-    gnomeExtensions.appindicator
-    gnome.gnome-tweaks
     mpv #hm
-    ntfs3g
+    nvidia-offload
     p7zip
+    (steam.override {
+        withPrimus = true;
+        extraPkgs = pkgs: [ bumblebee glxinfo ];
+        nativeOnly = true;
+    }).run
     syncthing #hm
     tmux #hm
     ungoogled-chromium #hm
     xclip
     zathura #hm
+    zoom-us
 
     # Development
     ## General
@@ -204,6 +201,11 @@
 
   programs.steam.enable = true;
   hardware.steam-hardware.enable = true;
+  hardware.nvidia.prime = {
+      offload.enable = true;
+      intelBusId = "PCI:0:2:0";
+      nvidiaBusId = "PCI:1:0:0";
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -218,7 +220,6 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "20.09"; # Did you read the comment?
-
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.johan = {
