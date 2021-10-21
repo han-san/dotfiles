@@ -4,15 +4,6 @@
 
 { config, pkgs, ... }:
 
-let
-  nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload" ''
-    export __NV_PRIME_RENDER_OFFLOAD=1
-    export __NV_PRIME_RENDER_OFFLOAD_PROVIDER=NVIDIA-G0
-    export __GLX_VENDOR_LIBRARY_NAME=nvidia
-    export __VK_LAYER_NV_optimus=NVIDIA_only
-    exec -a "$0" "$@"
-  '';
-in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -91,7 +82,7 @@ in
   services = {
     xserver = {
       enable = true;
-      videoDrivers = [ "modesetting" "nvidia" ];
+      #videoDrivers = [ "nvidia" ];
 
       # Configure keymap in X11
       layout = "us";
@@ -134,13 +125,12 @@ in
     dunst #hm
     firefox #hm
     mpv #hm
-    nvidia-offload
     p7zip
-    (steam.override {
-        withPrimus = true;
-        extraPkgs = pkgs: [ bumblebee glxinfo ];
-        nativeOnly = true;
-    }).run
+    #(steam.override {
+        #withPrimus = true;
+        #extraPkgs = pkgs: [ bumblebee glxinfo ];
+        #nativeOnly = true;
+    #}).run
     syncthing #hm
     tmux #hm
     ungoogled-chromium #hm
@@ -201,11 +191,8 @@ in
 
   programs.steam.enable = true;
   hardware.steam-hardware.enable = true;
-  hardware.nvidia.prime = {
-      offload.enable = true;
-      intelBusId = "PCI:0:2:0";
-      nvidiaBusId = "PCI:1:0:0";
-  };
+  #hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_390;
+  #hardware.bumblebee.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
