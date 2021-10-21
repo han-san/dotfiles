@@ -141,6 +141,7 @@
 
     # Development
     ## General
+    arduino
     git #hm
     git-lfs #hm
     kak-lsp #hm
@@ -176,6 +177,9 @@
     gnumake
     lldb
     qt5Full
+    ## Dotnet
+    fsharp
+    mono
 
     # Document
     texlive.combined.scheme-basic #hm
