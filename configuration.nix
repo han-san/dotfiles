@@ -34,10 +34,11 @@
     # replicates the default behaviour.
     useDHCP = false;
     interfaces = {
-      enp24s0.useDHCP = true;
-      wlo1.useDHCP = true;
+      ens5.useDHCP = true;
+      wls1.useDHCP = true;
     };
 
+    networkmanager.enable = true;
   };
 
   # Select internationalisation properties.
