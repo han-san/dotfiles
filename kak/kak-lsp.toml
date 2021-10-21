@@ -107,7 +107,7 @@ command = "dls"
 filetypes = ["dart"]
 roots = ["pubspec.yaml", ".git"]
 command = "sh"
-args = ["-c", "dart $(dirname $(which dart))/snapshots/analysis_server.dart.snapshot --lsp"]
+args = ["-c", "dart $(dirname $(command -v dart))/snapshots/analysis_server.dart.snapshot --lsp"]
 
 [language.elixir]
 filetypes = ["elixir"]
@@ -119,8 +119,9 @@ filetypes = ["elm"]
 roots = ["elm.json"]
 command = "elm-language-server"
 args = ["--stdio"]
+settings_section = "elmLS"
 
-[language.elm.initialization_options]
+[language.elm.settings.elmLS]
 runtime = "node"
 elmPath = "elm"
 elmFormatPath = "elm-format"
@@ -131,6 +132,10 @@ filetypes = ["go"]
 roots = ["Gopkg.toml", "go.mod", ".git", ".hg"]
 command = "gopls"
 offset_encoding = "utf-8"
+settings_section = "gopls"
+
+[language.go.settings.gopls]
+#
 
 [language.haskell]
 filetypes = ["haskell"]
@@ -149,8 +154,9 @@ filetypes = ["typescript", "javascript"]
 roots = [".git"]
 command = "deno"
 args = ["lsp"]
+settings_section = "denosettings"
 
-[language.deno.initialization_options]
+[language.deno.settings.denosettings]
 enable = true
 lint = true
 
@@ -190,9 +196,10 @@ filetypes = ["php"]
 roots = [".htaccess", "composer.json"]
 command = "intelephense"
 args = ["--stdio"]
+settings_section = "intelephense"
 
-[language.php.initialization_options]
-storagePath = "/tmp/intelephense"
+[language.php.settings]
+intelephense.storagePath = "/tmp/intelephense"
 
 # [language.python]
 # filetypes = ["python"]
