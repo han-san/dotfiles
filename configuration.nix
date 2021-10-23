@@ -199,6 +199,9 @@
   #hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_390;
   #hardware.bumblebee.enable = true;
 
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
+
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
