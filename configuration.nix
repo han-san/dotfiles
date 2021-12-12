@@ -86,7 +86,8 @@
 
       # Configure keymap in X11
       layout = "us";
-      xkbVariant = "colemak";
+      xkbVariant = "colemak,";
+      xkbOptions = "grp:win_space_toggle";
       # xkbOptions = "eurosign:e";
 
       displayManager.lightdm.enable = true;
