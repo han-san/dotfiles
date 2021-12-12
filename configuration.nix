@@ -83,7 +83,6 @@
   services = {
     xserver = {
       enable = true;
-      #videoDrivers = [ "nvidia" ];
 
       # Configure keymap in X11
       layout = "us";
@@ -196,8 +195,9 @@
 
   programs.steam.enable = true;
   hardware.steam-hardware.enable = true;
-  #hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.legacy_390;
-  #hardware.bumblebee.enable = true;
+
+  #services.xserver.videoDrivers = [ "nvidia" ];
+  #hardware.nvidia = import ./nvidia.nix config;
 
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
