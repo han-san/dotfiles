@@ -134,4 +134,18 @@
       cxx20 = "c++ -std=c++20";
     };
   };
+
+  programs.vscode = {
+    enable = true;
+    extensions = with pkgs.vscode-extensions; [
+      ms-dotnettools.csharp
+      ms-vscode.cpptools
+      ms-python.python
+      ms-python.vscode-pylance
+      ionide.ionide-fsharp
+
+      matklad.rust-analyzer
+      xaver.clang-format
+    ];
+  };
 }
