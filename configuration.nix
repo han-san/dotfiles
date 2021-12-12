@@ -182,7 +182,7 @@
     mono
 
     # Document
-    texlive.combined.scheme-basic #hm
+    (texlive.combine { inherit (texlive) scheme-basic listings; }) #hm
     texlab #lsp
   ];
 
