@@ -5,6 +5,7 @@ pkgs:
     indentWidth = 2;
     ui.assistant = "none";
     showMatching = true;
+    colorScheme = "gruvbox-dark";
     numberLines = {
       enable = true;
       relative = true;
