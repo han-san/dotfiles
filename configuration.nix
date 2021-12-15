@@ -141,12 +141,12 @@
 
     # Development
     ## General
-    arduino
     git #hm
     git-lfs #hm
     kak-lsp #hm
     kakoune #hm
     neovim #hm
+    hyperfine
     ## Haskell
     cabal-install
     ghc
@@ -160,6 +160,7 @@
     python-language-server #lsp
     ## Shell
     shellcheck
+    shfmt
     ## Rust
     cargo
     clippy
@@ -180,6 +181,7 @@
     ## Dotnet
     fsharp
     mono
+    dotnet-sdk
 
     # Document
     (texlive.combine { inherit (texlive) scheme-basic listings; }) #hm
