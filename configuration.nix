@@ -130,60 +130,22 @@
         #extraPkgs = pkgs: [ bumblebee glxinfo ];
         #nativeOnly = true;
     #}).run
-    syncthing #hm
     tmux #hm
-    ungoogled-chromium #hm
     xclip
     zathura #hm
-    zoom-us
 
     # Development
     ## General
     git #hm
     git-lfs #hm
-    kak-lsp #hm
     kakoune #hm
     neovim #hm
-    hyperfine
-    ## Haskell
-    cabal-install
-    ghc
-    haskell-language-server #lsp
-    stack
-    ## JS
-    nodejs
-    deno #lsp
     ## Python
     python
-    python-language-server #lsp
-    ## Shell
-    shellcheck
-    shfmt
-    ## Rust
-    cargo
-    clippy
-    rls #lsp
-    rust-analyzer
-    rustc
-    rustfmt
     ## C++
-    clang_12
-    clang-analyzer
-    clang-tools
-    cmake
+    clang_13
     gcc
-    gdb
     gnumake
-    lldb
-    qt5Full
-    ## Dotnet
-    fsharp
-    mono
-    dotnet-sdk
-
-    # Document
-    (texlive.combine { inherit (texlive) scheme-basic listings; }) #hm
-    texlab #lsp
   ];
 
   programs.steam.enable = true;

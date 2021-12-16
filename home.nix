@@ -41,17 +41,54 @@
     packages = with pkgs; [
       # Other
       discord
-      ffmpeg
       keepassxc
       youtube-dl
+      zoom-us
+      hyperfine
+      syncthing
 
       # Development
       qtcreator
       universal-ctags
+      ## Haskell
+      cabal-install
+      ghc
+      haskell-language-server #lsp
+      stack
+      ## JS
+      nodejs
+      deno #lsp
+      ## Python
+      python
+      python-language-server #lsp
+      ## Shell
+      shellcheck
+      shfmt
+      ## Rust
+      cargo
+      clippy
+      rls #lsp
+      rust-analyzer
+      rustc
+      rustfmt
+      ## C++
+      clang-analyzer
+      clang-tools
+      cmake
+      gdb
+      gnumake
+      lldb
+  #    qt5Full
+      ## Dotnet
+      fsharp
+      mono
+      dotnet-sdk
 
       #Document
       libreoffice
       pandoc
+      (texlive.combine { inherit (texlive) scheme-basic listings; }) #hm
+      texlab #lsp
     ];
   };
 
