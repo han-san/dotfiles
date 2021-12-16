@@ -18,10 +18,8 @@
     version = 2;
     # Define on which hard drive you want to install Grub.
     device = "/dev/sda"; # or "nodev" for efi only
+    useOSProber = true;
   };
-  # boot.loader.grub.efiSupport = true;
-  # boot.loader.grub.efiInstallAsRemovable = true;
-  # boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
   # Set your time zone.
   time.timeZone = "Europe/Stockholm";
@@ -86,7 +84,7 @@
 
       # Configure keymap in X11
       layout = "us";
-      xkbVariant = "colemak,";
+      xkbVariant = "colemak";
       xkbOptions = "grp:win_space_toggle";
       # xkbOptions = "eurosign:e";
 
@@ -187,14 +185,6 @@
     (texlive.combine { inherit (texlive) scheme-basic listings; }) #hm
     texlab #lsp
   ];
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
 
   programs.steam.enable = true;
   hardware.steam-hardware.enable = true;
