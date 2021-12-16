@@ -134,13 +134,13 @@
   programs.kakoune = import ./kak/kakrc.nix pkgs;
   xdg.configFile."kak-lsp/kak-lsp.toml".source = ./kak/kak-lsp.toml;
 
-  programs.chromium = {
-    enable = true;
-    package = pkgs.ungoogled-chromium;
-    extensions = [
-      { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; }
-    ];
-  };
+#  programs.chromium = {
+#    enable = true;
+#    package = pkgs.ungoogled-chromium;
+#    extensions = [
+#      { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; }
+#    ];
+#  };
 
   programs.firefox = import ./firefoxrc.nix pkgs.nur.repos.rycee.firefox-addons;
 
