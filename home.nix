@@ -45,7 +45,6 @@
       youtube-dl
       zoom-us
       hyperfine
-      syncthing
 
       # Development
       qtcreator
@@ -87,7 +86,6 @@
       #Document
       libreoffice
       pandoc
-      (texlive.combine { inherit (texlive) scheme-basic listings; }) #hm
       texlab #lsp
     ];
   };
@@ -104,6 +102,21 @@
       };
     }
     '';
+
+  programs.tmux = {
+    enable = true;
+  };
+
+  programs.texlive = {
+    enable = true;
+    extraPackages = tpkgs: {
+      inherit (tpkgs) collection-basic scheme-basic listings;
+    };
+  };
+
+  programs.zathura = {
+    enable = true;
+  };
 
   programs.git = {
     enable = true;
@@ -134,13 +147,13 @@
   programs.kakoune = import ./kak/kakrc.nix pkgs;
   xdg.configFile."kak-lsp/kak-lsp.toml".source = ./kak/kak-lsp.toml;
 
-#  programs.chromium = {
-#    enable = true;
-#    package = pkgs.ungoogled-chromium;
-#    extensions = [
-#      { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; }
-#    ];
-#  };
+  programs.chromium = {
+    enable = true;
+    #package = pkgs.ungoogled-chromium;
+    extensions = [
+      { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; }
+    ];
+  };
 
   programs.firefox = import ./firefoxrc.nix pkgs.nur.repos.rycee.firefox-addons;
 
@@ -184,5 +197,25 @@
       matklad.rust-analyzer
       xaver.clang-format
     ];
+  };
+
+  programs.fzf = {
+    enable = true;
+  };
+
+  programs.neovim = {
+    enable = true;
+    coc = {
+      enable = true;
+    };
+  };
+
+  services.dunst = {
+    enable = true;
+  };
+
+  services.syncthing = {
+    enable = true;
+    tray.enable = true;
   };
 }

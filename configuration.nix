@@ -124,6 +124,7 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     # Other
+    dmenu
     dunst #hm
     firefox #hm
     mpv #hm
