@@ -104,6 +104,9 @@
 
   programs.nm-applet.enable = true; # Networking app for xfce.
 
+  fonts.fonts = with pkgs; [
+    iosevka
+  ];
 
   # Enable sound.
   sound.enable = true;
