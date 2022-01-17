@@ -161,10 +161,6 @@
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
-  virtualisation.virtualbox.host.enable = true;
-  virtualisation.virtualbox.host.enableExtensionPack = true;
-  users.extraGroups.vboxusers.members = [ "johan" ];
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.johan = {
     isNormalUser = true;
