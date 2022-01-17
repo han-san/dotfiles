@@ -48,6 +48,7 @@
 
       # Development
       qtcreator
+      jetbrains.rider
       universal-ctags
       ## Haskell
       cabal-install
