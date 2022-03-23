@@ -82,7 +82,9 @@
       ## Dotnet
       fsharp
       mono
+      msbuild
       dotnet-sdk
+      dotnet-runtime
 
       #Document
       libreoffice
