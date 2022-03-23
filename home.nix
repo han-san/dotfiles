@@ -111,7 +111,7 @@
   programs.texlive = {
     enable = true;
     extraPackages = tpkgs: {
-      inherit (tpkgs) collection-basic scheme-basic listings;
+      inherit (tpkgs) scheme-full;
     };
   };
 
