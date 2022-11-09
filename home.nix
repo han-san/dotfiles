@@ -40,15 +40,20 @@
 
     packages = with pkgs; [
       # Other
+      choose
       discord
+      fd
+      hyperfine
       keepassxc
+      qbittorrent
       youtube-dl
       zoom-us
-      hyperfine
 
       # Development
-      qtcreator
       jetbrains.rider
+      qtcreator
+      ripgrep
+      tokei
       universal-ctags
       ## Haskell
       cabal-install
@@ -57,6 +62,7 @@
       stack
       ## JS
       nodejs
+      nodePackages.typescript
       deno #lsp
       ## Python
       python
@@ -75,6 +81,9 @@
       clang-analyzer
       clang-tools
       cmake
+      cmake-format
+      conan
+      cppcheck
       gdb
       gnumake
       lldb
@@ -82,7 +91,7 @@
       ## Dotnet
       fsharp
       mono
-      msbuild
+      #msbuild
       dotnet-sdk
       dotnet-runtime
 

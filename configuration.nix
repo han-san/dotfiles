@@ -128,17 +128,21 @@
     # Other
     dmenu
     dunst #hm
+    eva
+    file
     firefox #hm
+    gnuplot
     mpv #hm
+    onedrive
     p7zip
+    tmux #hm
+    xclip
+    zathura #hm
     #(steam.override {
         #withPrimus = true;
         #extraPkgs = pkgs: [ bumblebee glxinfo ];
         #nativeOnly = true;
     #}).run
-    tmux #hm
-    xclip
-    zathura #hm
 
     # Development
     ## General
@@ -151,7 +155,7 @@
     ## Python
     python
     ## C++
-    clang_13
+    clang_14
     gcc
     gnumake
   ];
