@@ -204,9 +204,9 @@
       make = "make -j4";
       cmake = "cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1";
 
-      ls = "ls --color=auto -h --group-directories-first";
-      ll = "ls -l";
-      la = "ls -A";
+      #ls = "ls --color=auto -h --group-directories-first";
+      #ll = "ls -l";
+      #la = "ls -A";
 
       grep = "grep --color=auto";
       fgrep = "fgrep --color=auto";
