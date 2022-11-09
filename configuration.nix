@@ -145,6 +145,8 @@
     git #hm
     git-lfs #hm
     kakoune #hm
+    man-pages
+    man-pages-posix
     neovim #hm
     ## Python
     python
@@ -153,6 +155,8 @@
     gcc
     gnumake
   ];
+
+  documentation.dev.enable = true;
 
   programs.steam.enable = true;
   hardware.steam-hardware.enable = true;
