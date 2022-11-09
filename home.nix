@@ -233,9 +233,22 @@
     ];
   };
 
-  programs.fzf = {
+  programs.skim = {
     enable = true;
+    changeDirWidgetCommand = "fd --type d";
+    defaultCommand = "fd --type f";
+    fileWidgetCommand = "fd --type f";
+    # Skim has a script for tmux integration, but there doesn't seem to
+    # be a way to specify that that's what I want to use.
   };
+
+  #programs.fzf = {
+    #enable = true;
+    #changeDirWidgetCommand = "fd --type d";
+    #defaultCommand = "fd --type f";
+    #fileWidgetCommand = "fd --type f";
+    #tmux.enableShellIntegration = true;
+  #};
 
   programs.neovim = {
     enable = true;
