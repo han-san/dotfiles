@@ -133,6 +133,11 @@
 
   programs.tmux = {
     enable = true;
+    clock24 = true;
+    escapeTime = 0;
+    shortcut = "q";
+    terminal = "xterm-256color";
+    extraConfig = "set-option -sa terminal-features \",xterm-256color:RGB\"";
   };
 
   programs.texlive = {
