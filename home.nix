@@ -115,6 +115,22 @@
     }
     '';
 
+  programs.tealdeer = {
+    enable = true;
+    settings = {
+      display.use_pager = true;
+    };
+  };
+
+  programs.zoxide.enable = true;
+
+  programs.bat.enable = true;
+
+  programs.exa = {
+    enable = true;
+    enableAliases = true;
+  };
+
   programs.tmux = {
     enable = true;
   };
@@ -135,6 +151,7 @@
     userName = "Johan Sandred";
     userEmail = "johan.sandred@protonmail.com";
     lfs.enable = true;
+    delta.enable = true;
     extraConfig = {
       core = {
         autocrlf = "input";
