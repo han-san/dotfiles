@@ -138,11 +138,6 @@
     tmux #hm
     xclip
     zathura #hm
-    #(steam.override {
-        #withPrimus = true;
-        #extraPkgs = pkgs: [ bumblebee glxinfo ];
-        #nativeOnly = true;
-    #}).run
 
     # Development
     ## General
