@@ -73,8 +73,7 @@
       ## Rust
       cargo
       clippy
-      rls #lsp
-      rust-analyzer
+      rust-analyzer #lsp
       rustc
       rustfmt
       ## C++
@@ -93,7 +92,6 @@
       mono
       #msbuild
       dotnet-sdk
-      dotnet-runtime
 
       #Document
       libreoffice
