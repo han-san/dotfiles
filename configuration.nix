@@ -160,9 +160,6 @@
   programs.steam.enable = true;
   hardware.steam-hardware.enable = true;
 
-  #services.xserver.videoDrivers = [ "nvidia" ];
-  #hardware.nvidia = import ./nvidia.nix config;
-
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
