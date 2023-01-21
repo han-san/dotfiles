@@ -12,14 +12,13 @@
       <home-manager/nixos>
     ];
 
-  # Use the GRUB 2 boot loader.
-  boot.loader.grub = {
-    enable = true;
-    version = 2;
-    # Define on which hard drive you want to install Grub.
-    device = "/dev/sda"; # or "nodev" for efi only
-    useOSProber = true;
-  };
+  # Make X11 start on intel integrated graphics
+  boot.kernelParams = [ "i915.force_probe=46a6" ];
+
+  # Bootloader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
   boot.supportedFilesystems = [ "ntfs" ];
 
@@ -34,42 +33,42 @@
     # replicates the default behaviour.
     useDHCP = false;
     interfaces = {
-      ens5.useDHCP = true;
-      wls1.useDHCP = true;
+      wlp0s20f3.useDHCP = true;
     };
 
     networkmanager.enable = true;
   };
 
   # Select internationalisation properties.
+
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
   #   # Versions and status of categories.
-  #   LC_IDENTIFICATION = "sv_SE.UTF-8";
+    LC_IDENTIFICATION = "sv_SE.UTF-8";
   #   # Character classification, case conversion and code transformation.
   #   LC_CTYPE = "sv_SE.UTF-8";
   #   # Collation order.
   #   LC_COLLATE = "sv_SE.UTF-8";
   #   # Date and time formats.
-    LC_TIME = "en_GB.UTF-8";
+    LC_TIME = "sv_SE.UTF-8";
   #   # Numeric, non-monetary formatting.
-  #   LC_NUMERIC = "sv_SE.UTF-8";
+    LC_NUMERIC = "sv_SE.UTF-8";
   #   # Monetary formatting.
-  #   LC_MONETARY = "sv_SE.UTF-8";
+    LC_MONETARY = "sv_SE.UTF-8";
   #   # Formats of informative and diagnostic messages and interactive responses.
   #   LC_MESSAGES = "sv_SE.UTF-8";
   #   # Character transliteration.
   #   LC_XLITERATE = "sv_SE.UTF-8";
   #   # Format of writing personal names.
-  #   LC_NAME = "sv_SE.UTF-8";
+    LC_NAME = "sv_SE.UTF-8";
   #   # Format of postal addresses.
-  #   LC_ADDRESS = "sv_SE.UTF-8";
+    LC_ADDRESS = "sv_SE.UTF-8";
   #   # Format for telephone numbers, and other telephone information.
-  #   LC_TELEPHONE = "sv_SE.UTF-8";
+    LC_TELEPHONE = "sv_SE.UTF-8";
     # Paper format.
-    LC_PAPER = "en_GB.UTF-8";
+    LC_PAPER = "sv_SE.UTF-8";
   #   # Information on measurement system.
-    LC_MEASUREMENT = "en_GB.UTF-8";
+    LC_MEASUREMENT = "sv_SE.UTF-8";
   #   # Format for idenitfying keyboards.
   #   LC_KEYBOARD = "sv_SE.UTF-8";
   };
@@ -88,14 +87,13 @@
       layout = "us";
       xkbVariant = "colemak";
       xkbOptions = "grp:win_space_toggle";
-      # xkbOptions = "eurosign:e";
 
-      displayManager.lightdm.enable = true;
-      desktopManager.xfce.enable = true;
-
-      # Enable touchpad support (enabled default in most desktopManager).
-      libinput.enable = true;
+      displayManager.gdm.enable = true;
+      desktopManager.gnome.enable = true;
     };
+
+    # Make sure systray icons work
+    udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
 
     # Enable CUPS to print documents.
     printing.enable = true;
@@ -104,15 +102,31 @@
     openssh.enable = true;
   };
 
-  programs.nm-applet.enable = true; # Networking app for xfce.
-
   fonts.fonts = with pkgs; [
     iosevka
   ];
 
-  # Enable sound.
-  sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  # Enable sound with pipewire.
+  #sound.enable = true;
+  hardware.pulseaudio.enable = false;
+  security.rtkit.enable  = true;
+  services.pipewire = {
+    enable = true;
+    alsa.enable = true;
+    alsa.support32Bit = true;
+    pulse.enable = true;
+  };
+
+  environment.etc = {
+    "wireplumber/bluetooth.lua.d/51-bluez-config.lua".text = ''
+      bluez_monitor.properties = {
+        ["bluez5.enable-sbc-xq"] = true,
+        ["bluez5.enable-msbc"] = true,
+        ["bluez5.enable-hw-volume"] = true,
+        ["bluez5.headset-roles"] = "[ hsp_hs hsp_ag hfp_hf hfp_ag ]"
+      }
+    '';
+  };
 
   nixpkgs.config.allowUnfree = true;
 
@@ -139,6 +153,13 @@
     xclip
     zathura #hm
 
+    # gnome extensions
+    gnome.gnome-tweaks
+    gnomeExtensions.appindicator
+    gnomeExtensions.x11-gestures
+    touchegg # Required for x11-gestures
+    #gnomeExtensions.gesture-improvements
+
     # Development
     ## General
     git #hm
@@ -153,21 +174,31 @@
     clang_14
     gcc
     gnumake
+    # Nix
+    nixpkgs-fmt
   ];
+
+  # Required for x11-gestures.
+  services.touchegg.enable = true;
 
   documentation.dev.enable = true;
 
   programs.steam.enable = true;
   hardware.steam-hardware.enable = true;
 
-  hardware.bluetooth.enable = true;
-  services.blueman.enable = true;
+  programs.adb.enable = true;
+  boot.kernelModules = [ "kvm-amd" ];
+  virtualisation.libvirtd.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.johan = {
     isNormalUser = true;
     description = "Johan Sandred";
-    extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+      "adbusers"
+    ];
   };
 
   home-manager = {
@@ -182,5 +213,5 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "21.11"; # Did you read the comment?
+  system.stateVersion = "22.11"; # Did you read the comment?
 }

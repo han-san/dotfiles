@@ -8,7 +8,6 @@ pkgs:
     colorScheme = "gruvbox-dark";
     numberLines = {
       enable = true;
-      relative = true;
     };
     keyMappings = import ./kakkeymappings.nix;
     hooks = [

@@ -31,15 +31,22 @@
       . /home/johan/.profile
       '';
 
+    file.".ideavimrc".text = ''
+      source ~/.config/nvim/init-home-manager.vim
+    '';
+
     sessionVariables = {
       LESSHISTFILE = "-";
       EDITOR = "kak";
-      CMAKE_BUILD_PARALLEL_LEVEL = 4;
+      CMAKE_BUILD_PARALLEL_LEVEL = 16;
       CMAKE_EXPORT_COMPILE_COMMANDS = 1;
+      DOTNET_CLI_TELEMETRY_OPTOUT = 1;
+      MOZ_USE_XINPUT2 = 1;
     };
 
     packages = with pkgs; [
       # Other
+      anki-bin
       choose
       discord
       fd
@@ -51,6 +58,7 @@
 
       # Development
       jetbrains.rider
+      jetbrains.clion
       qtcreator
       ripgrep
       tokei
@@ -86,7 +94,6 @@
       gdb
       gnumake
       lldb
-  #    qt5Full
       ## Dotnet
       fsharp
       mono
@@ -110,8 +117,16 @@
           inherit pkgs;
         };
       };
+
+      android_sdk.accept_license = true;
     }
     '';
+
+  xdg.configFile."discord/settings.json".text = ''
+    {
+      "SKIP_HOST_UPDATE": true
+    }
+  '';
 
   programs.tealdeer = {
     enable = true;
@@ -135,7 +150,10 @@
     escapeTime = 0;
     shortcut = "q";
     terminal = "xterm-256color";
-    extraConfig = "set-option -sa terminal-features \",xterm-256color:RGB\"";
+    extraConfig = ''
+      set-option -sa terminal-features \",xterm-256color:RGB\"
+      set -g mouse on
+    '';
   };
 
   programs.texlive = {
@@ -160,6 +178,16 @@
         autocrlf = "input";
         editor = "kak";
       };
+      commit.verbose = true;
+      init.defaultBranch = "main";
+    };
+    aliases = {
+      a = "commit --amend";
+      ane = "commit --amend --no-edit";
+      s = "status";
+      c = "commit";
+      cm = "commit -m";
+      co = "checkout";
     };
   };
 
@@ -199,14 +227,14 @@
       rmdir = "rmdir -pv";
       rm = "rm -Iv";
 
-      make = "make -j4";
+      make = "make -j16";
       cmake = "cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1";
 
       #ls = "ls --color=auto -h --group-directories-first";
       #ll = "ls -l";
       #la = "ls -A";
 
-      grep = "grep --color=auto";
+      grep = "rg";
       fgrep = "fgrep --color=auto";
       egrep = "egrep --color=auto";
 
@@ -214,21 +242,15 @@
 
       cxx17 = "c++ -std=c++17";
       cxx20 = "c++ -std=c++20";
+
+      cat = "bat";
+      cd = "z";
     };
   };
 
   programs.vscode = {
     enable = true;
-    extensions = with pkgs.vscode-extensions; [
-      ms-dotnettools.csharp
-      ms-vscode.cpptools
-      ms-python.python
-      ms-python.vscode-pylance
-      ionide.ionide-fsharp
-
-      matklad.rust-analyzer
-      xaver.clang-format
-    ];
+    package = pkgs.vscode.fhs;
   };
 
   programs.skim = {
@@ -253,6 +275,39 @@
     coc = {
       enable = true;
     };
+    extraConfig = ''
+      noremap n j
+      noremap e k
+      noremap i l
+      noremap k n
+      noremap l u
+      noremap j e
+      noremap u i
+
+      noremap N J
+      noremap E K
+      noremap I L
+      noremap K N
+      noremap L U
+      noremap J E
+      noremap U I
+
+      let mapleader = ","
+
+      set number
+      set path+=**
+      set softtabstop=4
+      set shiftwidth=4
+      set shiftround
+      set report=0
+      set ignorecase
+      set smartcase
+      set spell
+      set spelllang=en,sv
+      set backupdir-=.
+      set backup
+      set undofile
+    '';
   };
 
   services.dunst = {
