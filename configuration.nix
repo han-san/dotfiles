@@ -181,7 +181,7 @@
     man-pages-posix
     neovim #hm
     ## Python
-    python
+    python3
     ## C++
     clang_14
     gcc

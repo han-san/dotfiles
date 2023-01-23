@@ -73,7 +73,7 @@
       nodePackages.typescript
       deno #lsp
       ## Python
-      python
+      python3
       python-language-server #lsp
       ## Shell
       shellcheck
