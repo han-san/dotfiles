@@ -102,6 +102,18 @@
     openssh.enable = true;
   };
 
+  environment.gnome.excludePackages = (with pkgs; [
+    gnome-tour
+  ]) ++ (with pkgs.gnome; [
+    epiphany # browser
+    geary # mail client
+    gnome-music
+    totem # video player
+    yelp # help viewer
+    gnome-contacts
+    gnome-maps
+  ]);
+
   fonts.fonts = with pkgs; [
     iosevka
   ];
