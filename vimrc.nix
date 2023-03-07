@@ -15,6 +15,8 @@
   noremap J E
   noremap U I
 
+  nnoremap Y y$
+
   let mapleader = ","
 
   set number
