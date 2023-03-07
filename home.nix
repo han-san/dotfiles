@@ -193,7 +193,6 @@
     enable = true;
     defaultProfiles = [ "gpu-hq" ];
     config = {
-      gpu-api = "vulkan";
       cscale = "ewa_lanczos";
       scale = "ewa_lanczossharp";
       tscale = "oversample";
