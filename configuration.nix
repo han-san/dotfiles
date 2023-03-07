@@ -15,6 +15,9 @@
   # Make X11 start on intel integrated graphics
   boot.kernelParams = [ "i915.force_probe=46a6" ];
 
+  # Eduroam certificate
+  security.pki.certificateFiles = [ ./eduroam.pem ];
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
