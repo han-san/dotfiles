@@ -72,7 +72,7 @@
       deno #lsp
       ## Python
       python3
-      python-language-server #lsp
+      #python-lsp-server #lsp
       ## Shell
       shellcheck
       shfmt
