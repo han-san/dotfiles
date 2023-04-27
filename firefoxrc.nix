@@ -1,15 +1,15 @@
 addons:
 {
   enable = true;
-  extensions = with addons; [
-    ublock-origin
-    decentraleyes
-    facebook-container
-    keepassxc-browser
-    violentmonkey
-    betterttv
-  ];
   profiles.default = {
+    extensions = with addons; [
+      ublock-origin
+      decentraleyes
+      facebook-container
+      keepassxc-browser
+      violentmonkey
+      betterttv
+    ];
     id = 0;
     settings = {
       # "browser.safebrowsing.malware.enabled" = false;
