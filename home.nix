@@ -244,6 +244,8 @@
       cxx20 = "c++ -std=c++20";
 
       cat = "bat";
+
+      wrap = "fmt";
     };
   };
 
