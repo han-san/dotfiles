@@ -48,11 +48,14 @@
       choose
       discord
       fd
+      jellyfin-mpv-shim
       hyperfine
       keepassxc
       qbittorrent
       youtube-dl
+      teams
       zoom-us
+      gnomeExtensions.caffeine
 
       # Development
       jetbrains.rider

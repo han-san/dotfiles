@@ -144,6 +144,8 @@
     '';
   };
 
+  hardware.opengl.enable = true;
+
   nixpkgs.config.allowUnfree = true;
 
   nixpkgs.config.packageOverrides = pkgs: {
@@ -166,6 +168,7 @@
     onedrive
     p7zip
     tmux #hm
+    tree
     xclip
     zathura #hm
 
