@@ -40,6 +40,7 @@
       CMAKE_EXPORT_COMPILE_COMMANDS = 1;
       DOTNET_CLI_TELEMETRY_OPTOUT = 1;
       MOZ_USE_XINPUT2 = 1;
+      SNIPPET_DIR = "~/Projects/snippets/";
     };
 
     packages = with pkgs; [
@@ -56,6 +57,13 @@
       teams
       zoom-us
       gnomeExtensions.caffeine
+
+      # Custom
+      (writeShellApplication {
+        name = "snippet";
+        runtimeInputs = [ fd skim ];
+        text = (builtins.readFile ./scripts/snippet.bash);
+      })
 
       # Development
       jetbrains.rider
