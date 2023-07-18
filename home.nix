@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   # Let Home Manager install and manage itself.
@@ -214,6 +214,7 @@
       video-sync = "display-resample";
     };
   };
+  xdg.configFile."jellyfin-mpv-shim/mpv.conf".source = let mpvConf = config.xdg.configFile."mpv/mpv.conf".target; in config.lib.file.mkOutOfStoreSymlink "${config.xdg.configHome}/${mpvConf}";
 
   programs.kakoune = import ./kak/kakrc.nix pkgs;
   xdg.configFile."kak-lsp/kak-lsp.toml".source = ./kak/kak-lsp.toml;
