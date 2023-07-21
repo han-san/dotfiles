@@ -28,7 +28,7 @@
     # .profile from .xprofile.
     file.".xprofile".text = ''
       #!/bin/sh
-      . /home/johan/.profile
+      . ${config.home.homeDirectory}/.profile
       '';
 
     file.".ideavimrc".text = import ./vimrc.nix;
@@ -40,7 +40,8 @@
       CMAKE_EXPORT_COMPILE_COMMANDS = 1;
       DOTNET_CLI_TELEMETRY_OPTOUT = 1;
       MOZ_USE_XINPUT2 = 1;
-      SNIPPET_DIR = "~/Projects/snippets/";
+      SNIPPETS_DIR = "${config.home.homeDirectory}/Projects/snippets/";
+      TODO_FILE = "${config.xdg.userDirs.documents}/TODO.org";
     };
 
     packages = with pkgs; [
@@ -214,7 +215,7 @@
       video-sync = "display-resample";
     };
   };
-  xdg.configFile."jellyfin-mpv-shim/mpv.conf".source = let mpvConf = config.xdg.configFile."mpv/mpv.conf".target; in config.lib.file.mkOutOfStoreSymlink "${config.xdg.configHome}/${mpvConf}";
+  xdg.configFile."jellyfin-mpv-shim/mpv.conf".source = config.xdg.configFile."mpv/mpv.conf".source;
 
   programs.kakoune = import ./kak/kakrc.nix pkgs;
   xdg.configFile."kak-lsp/kak-lsp.toml".source = ./kak/kak-lsp.toml;
