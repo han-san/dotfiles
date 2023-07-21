@@ -109,6 +109,8 @@
     # Enable the OpenSSH daemon.
     openssh.enable = true;
 
+    fstrim.enable = true;
+
     tailscale.enable = true;
   };
 
