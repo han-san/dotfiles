@@ -40,6 +40,11 @@
     };
 
     networkmanager.enable = true;
+
+    firewall = {
+      trustedInterfaces = [ config.services.tailscale.interfaceName ];
+      allowedUDPPorts = [ config.services.tailscale.port ];
+    };
   };
 
   # Select internationalisation properties.
@@ -103,6 +108,8 @@
 
     # Enable the OpenSSH daemon.
     openssh.enable = true;
+
+    tailscale.enable = true;
   };
 
   environment.gnome.excludePackages = (with pkgs; [
@@ -167,6 +174,7 @@
     mpv #hm
     onedrive
     p7zip
+    tailscale
     tmux #hm
     tree
     xclip
