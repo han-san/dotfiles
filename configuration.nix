@@ -112,6 +112,31 @@
     fstrim.enable = true;
 
     tailscale.enable = true;
+
+    syncthing = {
+      enable = true;
+      user = "johan";
+      dataDir = "/home/johan/Sync";
+      openDefaultPorts = true;
+      devices = {
+        Phone = {
+          id = "KYLVEZL-RUMAOH3-EN43MXV-QXSTIMT-ABMWQCB-A3SNTTJ-MUYJK7C-KYIFJQT";
+        };
+        Desktop = {
+          id = "I4VJCRD-G2YEKD6-YEI3UYN-CP6KT3T-F25MBXL-WNQFSBQ-JESNMZO-JYF7NQZ";
+        };
+        Federer = {
+          id = "YFXUNZH-6V2DILS-H2BKHKD-7C4EOY7-7745UPQ-Z6TYDLI-V32JYT2-PGFAEQJ";
+        };
+      };
+      folders = {
+        "/home/johan/Sync/Keepass" = {
+          id = "cncxg-cggmc";
+          label = "Keepass";
+          devices = [ "Phone" "Desktop" "Federer" ];
+        };
+      };
+    };
   };
 
   environment.gnome.excludePackages = (with pkgs; [
