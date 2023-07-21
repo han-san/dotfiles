@@ -202,8 +202,10 @@
 
   documentation.dev.enable = true;
 
-  programs.steam.enable = true;
-  hardware.steam-hardware.enable = true;
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+  };
 
   programs.adb.enable = true;
   boot.kernelModules = [ "kvm-amd" ];
