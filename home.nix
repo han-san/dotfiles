@@ -65,6 +65,29 @@
         runtimeInputs = [ fd skim ];
         text = (builtins.readFile ./scripts/snippet.bash);
       })
+      (writeShellApplication {
+        name = "todo-add";
+        text = (builtins.readFile ./scripts/todo-add.sh);
+      })
+      (writeShellApplication {
+        name = "todo-complete";
+        runtimeInputs = [ skim ];
+        text = (builtins.readFile ./scripts/todo-complete.sh);
+      })
+      (writeShellApplication {
+        name = "todo-edit";
+        runtimeInputs = [ emacs ];
+        text = (builtins.readFile ./scripts/todo-edit.sh);
+      })
+      (writeShellApplication {
+        name = "todo-show";
+        runtimeInputs = [ bat ];
+        text = (builtins.readFile ./scripts/todo-show.sh);
+      })
+      (writeShellApplication {
+        name = "cleanbootgens";
+        text = (builtins.readFile ./scripts/cleanbootgenerations.sh);
+      })
 
       # Development
       flutter
