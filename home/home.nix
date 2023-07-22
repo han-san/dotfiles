@@ -4,6 +4,10 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
+  imports = [
+    ./kak/kakrc.nix
+  ];
+
   # This isn't needed (or allowed) if home-manager.useGlobalPkgs is true.
   #nixpkgs.config.allowUnfree = true;
 
@@ -240,9 +244,6 @@
     };
   };
   xdg.configFile."jellyfin-mpv-shim/mpv.conf".source = config.xdg.configFile."mpv/mpv.conf".source;
-
-  programs.kakoune = import ./kak/kakrc.nix pkgs;
-  xdg.configFile."kak-lsp/kak-lsp.toml".source = ./kak/kak-lsp.toml;
 
   programs.emacs = {
     enable = true;
