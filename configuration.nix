@@ -266,7 +266,7 @@
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
-    users.johan = import ./home.nix;
+    users.johan = import ./home/home.nix;
   };
 
   # This value determines the NixOS release from which the default
