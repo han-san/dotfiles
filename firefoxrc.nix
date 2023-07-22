@@ -63,6 +63,9 @@ addons:
 
       # Remove firefox account (sync)
       "identity.fxaccounts.enabled" = false;
+
+      # Required(?) for hardware decoding. (https://wiki.archlinux.org/title/Firefox#Hardware_video_acceleration)
+      "media.ffmpeg.vaapi.enabled" = true;
     };
   };
 }
