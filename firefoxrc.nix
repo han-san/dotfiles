@@ -8,7 +8,6 @@ addons:
       facebook-container
       keepassxc-browser
       violentmonkey
-      betterttv
     ];
     id = 0;
     settings = {

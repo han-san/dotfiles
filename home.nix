@@ -169,7 +169,7 @@
   programs.texlive = {
     enable = true;
     extraPackages = tpkgs: {
-      inherit (tpkgs) scheme-full;
+      inherit (tpkgs) scheme-basic;
     };
   };
 
@@ -219,6 +219,10 @@
 
   programs.kakoune = import ./kak/kakrc.nix pkgs;
   xdg.configFile."kak-lsp/kak-lsp.toml".source = ./kak/kak-lsp.toml;
+
+  programs.emacs = {
+    enable = true;
+  };
 
   programs.chromium = {
     enable = true;
