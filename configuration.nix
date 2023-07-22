@@ -250,7 +250,6 @@
   };
 
   programs.adb.enable = true;
-  boot.kernelModules = [ "kvm-amd" ];
   virtualisation.libvirtd.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
