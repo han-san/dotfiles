@@ -239,7 +239,10 @@
   # Required for x11-gestures.
   services.touchegg.enable = true;
 
-  documentation.dev.enable = true;
+  documentation = {
+    dev.enable = true;
+    man.generateCaches = true;
+  };
 
   programs.steam = {
     enable = true;
