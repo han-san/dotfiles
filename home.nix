@@ -67,6 +67,7 @@
       })
 
       # Development
+      flutter
       jetbrains.rider
       jetbrains.clion
       qtcreator
