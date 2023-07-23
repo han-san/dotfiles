@@ -37,16 +37,17 @@
 
     file.".ideavimrc".text = import ./vimrc.nix;
 
-    sessionVariables = {
+    sessionVariables = rec {
       LESSHISTFILE = "-";
       EDITOR = "kak";
       CMAKE_BUILD_PARALLEL_LEVEL = 16;
       CMAKE_EXPORT_COMPILE_COMMANDS = 1;
       DOTNET_CLI_TELEMETRY_OPTOUT = 1;
       MOZ_USE_XINPUT2 = 1;
-      SNIPPETS_DIR = "${config.home.homeDirectory}/Projects/snippets";
+      PROJECTS_DIR = "${config.home.homeDirectory}/Projects";
+      SNIPPETS_DIR = "${PROJECTS_DIR}/snippets";
+      SCRIPTS_DIR = "${PROJECTS_DIR}/scripts";
       TODO_FILE = "${config.xdg.userDirs.documents}/TODO.org";
-      SCRIPTS_DIR = "${config.home.homeDirectory}/Projects/scripts";
     };
 
     packages = let
