@@ -44,11 +44,14 @@
       CMAKE_EXPORT_COMPILE_COMMANDS = 1;
       DOTNET_CLI_TELEMETRY_OPTOUT = 1;
       MOZ_USE_XINPUT2 = 1;
-      SNIPPETS_DIR = "${config.home.homeDirectory}/Projects/snippets/";
+      SNIPPETS_DIR = "${config.home.homeDirectory}/Projects/snippets";
       TODO_FILE = "${config.xdg.userDirs.documents}/TODO.org";
+      SCRIPTS_DIR = "${config.home.homeDirectory}/Projects/scripts";
     };
 
-    packages = with pkgs; [
+    packages = let
+      SCRIPTS_DIR = config.home.sessionVariables.SCRIPTS_DIR;
+    in with pkgs; [
       # Other
       anki-bin
       choose
@@ -67,30 +70,30 @@
       (writeShellApplication {
         name = "snippet";
         runtimeInputs = [ fd skim ];
-        text = (builtins.readFile ./scripts/snippet.bash);
+        text = (builtins.readFile "${SCRIPTS_DIR}/snippet.bash");
       })
       (writeShellApplication {
         name = "todo-add";
-        text = (builtins.readFile ./scripts/todo-add.sh);
+        text = (builtins.readFile "${SCRIPTS_DIR}/todo-add.sh");
       })
       (writeShellApplication {
         name = "todo-complete";
         runtimeInputs = [ skim ];
-        text = (builtins.readFile ./scripts/todo-complete.sh);
+        text = (builtins.readFile "${SCRIPTS_DIR}/todo-complete.sh");
       })
       (writeShellApplication {
         name = "todo-edit";
         runtimeInputs = [ emacs ];
-        text = (builtins.readFile ./scripts/todo-edit.sh);
+        text = (builtins.readFile "${SCRIPTS_DIR}/todo-edit.sh");
       })
       (writeShellApplication {
         name = "todo-show";
         runtimeInputs = [ bat ];
-        text = (builtins.readFile ./scripts/todo-show.sh);
+        text = (builtins.readFile "${SCRIPTS_DIR}/todo-show.sh");
       })
       (writeShellApplication {
-        name = "cleanbootgens";
-        text = (builtins.readFile ./scripts/cleanbootgenerations.sh);
+        name = "cleanbootgenerations";
+        text = (builtins.readFile "${SCRIPTS_DIR}/cleanbootgenerations.sh");
       })
 
       # Development
