@@ -9,6 +9,7 @@
     ./neovim/neovim.nix
     ./firefox.nix
     ./bash.nix
+    ./mpv.nix
   ];
 
   # This isn't needed (or allowed) if home-manager.useGlobalPkgs is true.
@@ -236,19 +237,6 @@
       co = "checkout";
     };
   };
-
-  programs.mpv = {
-    enable = true;
-    defaultProfiles = [ "gpu-hq" ];
-    config = {
-      cscale = "ewa_lanczos";
-      scale = "ewa_lanczossharp";
-      tscale = "oversample";
-      interpolation = true;
-      video-sync = "display-resample";
-    };
-  };
-  xdg.configFile."jellyfin-mpv-shim/mpv.conf".source = config.xdg.configFile."mpv/mpv.conf".source;
 
   programs.emacs = {
     enable = true;
