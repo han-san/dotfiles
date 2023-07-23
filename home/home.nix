@@ -7,6 +7,7 @@
   imports = [
     ./kak/kakrc.nix
     ./neovim/neovim.nix
+    ./firefox.nix
   ];
 
   # This isn't needed (or allowed) if home-manager.useGlobalPkgs is true.
@@ -259,8 +260,6 @@
       { id = "cjpalhdlnbpafiamejdnhcphjbkeiagm"; }
     ];
   };
-
-  programs.firefox = import ./firefoxrc.nix pkgs.nur.repos.rycee.firefox-addons;
 
   programs.bash = {
     enable = true;
