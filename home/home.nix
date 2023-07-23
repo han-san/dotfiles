@@ -6,6 +6,7 @@
 
   imports = [
     ./kak/kakrc.nix
+    ./neovim/neovim.nix
   ];
 
   # This isn't needed (or allowed) if home-manager.useGlobalPkgs is true.
@@ -34,8 +35,6 @@
       #!/bin/sh
       . ${config.home.homeDirectory}/.profile
       '';
-
-    file.".ideavimrc".text = import ./vimrc.nix;
 
     sessionVariables = rec {
       LESSHISTFILE = "-";
@@ -316,14 +315,6 @@
     #fileWidgetCommand = "fd --type f";
     #tmux.enableShellIntegration = true;
   #};
-
-  programs.neovim = {
-    enable = true;
-    coc = {
-      enable = true;
-    };
-    extraConfig = import ./vimrc.nix;
-  };
 
   services.dunst = {
     enable = true;

@@ -1,4 +1,3 @@
-''
   noremap n j
   noremap e k
   noremap i l
@@ -32,4 +31,3 @@
   set backupdir-=.
   set backup
   set undofile
-''
