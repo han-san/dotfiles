@@ -139,6 +139,11 @@
           label = "Keepass";
           devices = [ "Phone" "Desktop" "Federer" ];
         };
+        "/home/johan/Sync/Todos" = {
+          id = "nxmmm-bfstv";
+          label = "Todos";
+          devices = [ "Desktop" "Federer" ];
+        };
       };
     };
   };
