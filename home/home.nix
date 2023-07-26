@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, osConfig, ... }:
 
 {
   # Let Home Manager install and manage itself.
@@ -50,7 +50,7 @@
       PROJECTS_DIR = "${config.home.homeDirectory}/Projects";
       SNIPPETS_DIR = "${PROJECTS_DIR}/snippets";
       SCRIPTS_DIR = "${PROJECTS_DIR}/scripts";
-      TODO_FILE = "${config.xdg.userDirs.documents}/TODO.org";
+      TODO_FILE = "${osConfig.services.syncthing.dataDir}/Todos/TODO.org";
     };
 
     packages = with pkgs; [
