@@ -144,6 +144,11 @@
           label = "Todos";
           devices = [ "Desktop" "Federer" ];
         };
+        "/home/johan/Projects" = {
+          id = "gqiul-n9por";
+          label = "Projects";
+          devices = [ "Desktop" "Federer" ];
+        };
       };
     };
   };
