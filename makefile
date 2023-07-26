@@ -1,2 +1,2 @@
 install:
-	cp -ri * /etc/nixos/
+	cp -br * /etc/nixos/
