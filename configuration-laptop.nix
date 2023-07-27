@@ -81,12 +81,12 @@
         };
       };
       folders = {
-        "/home/johan/Sync/Keepass" = {
+        "${config.services.syncthing.dataDir}/Keepass" = {
           id = "cncxg-cggmc";
           label = "Keepass";
           devices = [ "Phone" "Desktop" "Federer" ];
         };
-        "/home/johan/Sync/Todos" = {
+        "${config.services.syncthing.dataDir}/Todos" = {
           id = "nxmmm-bfstv";
           label = "Todos";
           devices = [ "Desktop" "Federer" ];
