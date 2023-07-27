@@ -7,3 +7,4 @@ server:
 	cp -b configuration-server.nix /etc/nixos/configuration.nix
 	cp -br * /etc/nixos/
 
+.PHONY: default laptop server
