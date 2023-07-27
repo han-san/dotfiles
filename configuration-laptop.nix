@@ -216,7 +216,7 @@
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
-    users.johan = import ./home/home.nix;
+    users.johan = import ./laptop/home/home.nix;
   };
 
 }
