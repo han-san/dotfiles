@@ -1,17 +1,11 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+  imports = [
       # Home Manager's channel must be added in order for this import to work.
       <home-manager/nixos>
-    ];
-
+      ./configuration-common.nix
+  ];
   # Make X11 start on intel integrated graphics
   boot.kernelParams = [ "i915.force_probe=46a6" ];
 
@@ -24,9 +18,6 @@
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
   boot.supportedFilesystems = [ "ntfs" ];
-
-  # Set your time zone.
-  time.timeZone = "Europe/Stockholm";
 
   networking = {
     hostName = "hansan-laptop"; # Define your hostname.
@@ -45,45 +36,6 @@
       trustedInterfaces = [ config.services.tailscale.interfaceName ];
       allowedUDPPorts = [ config.services.tailscale.port ];
     };
-  };
-
-  # Select internationalisation properties.
-
-  i18n.defaultLocale = "en_US.UTF-8";
-  i18n.extraLocaleSettings = {
-  #   # Versions and status of categories.
-    LC_IDENTIFICATION = "sv_SE.UTF-8";
-  #   # Character classification, case conversion and code transformation.
-  #   LC_CTYPE = "sv_SE.UTF-8";
-  #   # Collation order.
-  #   LC_COLLATE = "sv_SE.UTF-8";
-  #   # Date and time formats.
-    LC_TIME = "sv_SE.UTF-8";
-  #   # Numeric, non-monetary formatting.
-    LC_NUMERIC = "sv_SE.UTF-8";
-  #   # Monetary formatting.
-    LC_MONETARY = "sv_SE.UTF-8";
-  #   # Formats of informative and diagnostic messages and interactive responses.
-  #   LC_MESSAGES = "sv_SE.UTF-8";
-  #   # Character transliteration.
-  #   LC_XLITERATE = "sv_SE.UTF-8";
-  #   # Format of writing personal names.
-    LC_NAME = "sv_SE.UTF-8";
-  #   # Format of postal addresses.
-    LC_ADDRESS = "sv_SE.UTF-8";
-  #   # Format for telephone numbers, and other telephone information.
-    LC_TELEPHONE = "sv_SE.UTF-8";
-    # Paper format.
-    LC_PAPER = "sv_SE.UTF-8";
-  #   # Information on measurement system.
-    LC_MEASUREMENT = "sv_SE.UTF-8";
-  #   # Format for idenitfying keyboards.
-  #   LC_KEYBOARD = "sv_SE.UTF-8";
-  };
-
-  console = {
-  #   font = "Lat2-Terminus16";
-    keyMap = "colemak";
   };
 
   services = {
@@ -106,12 +58,7 @@
     # Enable CUPS to print documents.
     printing.enable = true;
 
-    # Enable the OpenSSH daemon.
-    openssh.enable = true;
-
     fstrim.enable = true;
-
-    tailscale.enable = true;
 
     syncthing = {
       enable = true;
@@ -194,8 +141,6 @@
 
   hardware.opengl.enable = true;
 
-  nixpkgs.config.allowUnfree = true;
-
   nixpkgs.config.packageOverrides = pkgs: {
     nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
       inherit pkgs;
@@ -249,11 +194,6 @@
   # Required for x11-gestures.
   services.touchegg.enable = true;
 
-  documentation = {
-    dev.enable = true;
-    man.generateCaches = true;
-  };
-
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
@@ -279,11 +219,4 @@
     users.johan = import ./home/home.nix;
   };
 
-  # This value determines the NixOS release from which the default
-  # settings for stateful data, like file locations and database versions
-  # on your system were taken. It‘s perfectly fine and recommended to leave
-  # this value at the release version of the first install of this system.
-  # Before changing this value read the documentation for this option
-  # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "22.11"; # Did you read the comment?
 }
