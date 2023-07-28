@@ -6,6 +6,7 @@
       <home-manager/nixos>
       ./configuration-common.nix
       ./laptop/syncthing.nix
+      ./laptop/desktop-environment.nix
   ];
   # Make X11 start on intel integrated graphics
   boot.kernelParams = [ "i915.force_probe=46a6" ];
@@ -40,39 +41,11 @@
   };
 
   services = {
-    # Enable the X11 windowing system.
-    xserver = {
-      enable = true;
-
-      # Configure keymap in X11
-      layout = "us";
-      xkbVariant = "colemak";
-      xkbOptions = "grp:win_space_toggle";
-
-      displayManager.gdm.enable = true;
-      desktopManager.gnome.enable = true;
-    };
-
-    # Make sure systray icons work
-    udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
-
     # Enable CUPS to print documents.
     printing.enable = true;
 
     fstrim.enable = true;
   };
-
-  environment.gnome.excludePackages = (with pkgs; [
-    gnome-tour
-  ]) ++ (with pkgs.gnome; [
-    epiphany # browser
-    geary # mail client
-    gnome-music
-    totem # video player
-    yelp # help viewer
-    gnome-contacts
-    gnome-maps
-  ]);
 
   fonts.fonts = with pkgs; [
     iosevka
@@ -125,15 +98,7 @@
     tailscale
     tmux #hm
     tree
-    xclip
     zathura #hm
-
-    # gnome extensions
-    gnome.gnome-tweaks
-    gnomeExtensions.appindicator
-    gnomeExtensions.x11-gestures
-    touchegg # Required for x11-gestures
-    #gnomeExtensions.gesture-improvements
 
     # Development
     ## General
@@ -152,9 +117,6 @@
     # Nix
     nixpkgs-fmt
   ];
-
-  # Required for x11-gestures.
-  services.touchegg.enable = true;
 
   programs.steam = {
     enable = true;
