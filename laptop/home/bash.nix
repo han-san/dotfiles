@@ -29,6 +29,8 @@
       cat = "bat";
 
       wrap = "fmt";
+
+      nixre = "sudo nixos-rebuild switch";
     };
   };
 }
