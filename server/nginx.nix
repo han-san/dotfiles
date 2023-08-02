@@ -1,14 +1,25 @@
 { ... }:
 
 {
-  services.nginx = {
-    enable = true;
-    recommendedGzipSettings = true;
-    # Note: should be domain name instead of IP. Also IP probably(?) isn't static ATM.
-    virtualHosts."185.113.96.232" = {
-      root = "/var/www";
+  services.nginx =
+    let tailscaleDomain = "federer.tailf7aba.ts.net";
+    in {
+      enable = true;
+      recommendedGzipSettings = true;
+
+      virtualHosts."${tailscaleDomain}" =
+        {
+          root = "/var/www";
+          locations = {
+            "/jellyfin" = {
+              return = "301 http://${tailscaleDomain}:8096/";
+            };
+            "/syncthing" = {
+              return = "301 http://${tailscaleDomain}:8384/";
+            };
+          };
+        };
     };
-  };
 
   networking.firewall.allowedTCPPorts = [ 80 443 ];
 }
