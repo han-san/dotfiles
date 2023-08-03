@@ -63,7 +63,6 @@
       hyperfine
       keepassxc
       qbittorrent
-      youtube-dl
       teams
       zoom-us
       gnomeExtensions.caffeine
@@ -231,6 +230,10 @@
     fileWidgetCommand = "fd --type f";
     # Skim has a script for tmux integration, but there doesn't seem to
     # be a way to specify that that's what I want to use.
+  };
+
+  programs.yt-dlp = {
+    enable = true;
   };
 
   #programs.fzf = {
