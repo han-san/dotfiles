@@ -57,6 +57,8 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   documentation = {
     dev.enable = true;
     man.generateCaches = true;
