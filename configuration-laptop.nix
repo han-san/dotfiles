@@ -74,7 +74,16 @@
     '';
   };
 
-  hardware.opengl.enable = true;
+  hardware.opengl = {
+    enable = true;
+    # Don't know which ones are actually necessary.
+    extraPackages = with pkgs; [
+      intel-media-driver
+      vaapiIntel
+      vaapiVdpau
+      libvdpau-va-gl
+    ];
+  };
 
   nixpkgs.config.packageOverrides = pkgs: {
     nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
