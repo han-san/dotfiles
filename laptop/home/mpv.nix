@@ -5,10 +5,12 @@
     defaultProfiles = [ "gpu-hq" ];
     config = {
       cscale = "ewa_lanczos";
-      scale = "ewa_lanczossharp";
+      scale = "ewa_lanczos";
       tscale = "oversample";
       interpolation = true;
       video-sync = "display-resample";
+      vo = "gpu-next";
+      hwdec = "auto-safe";
     };
   };
 
