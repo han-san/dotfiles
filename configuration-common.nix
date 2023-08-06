@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./tailscale-extension.nix
     ];
 
   # Set your time zone.
@@ -49,7 +50,10 @@
   console.keyMap = "colemak";
 
   services = {
-    tailscale.enable = true;
+    tailscale = {
+      enable = true;
+      tailnetName = "siren-tuna.ts.net";
+    };
 
     # Enable the OpenSSH daemon.
     openssh.enable = true;

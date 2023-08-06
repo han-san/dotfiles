@@ -14,13 +14,11 @@
       password = builtins.readFile ./syncthingpass.txt;
     };
 
-    devices = let
-      tailscaleDomain = "tailf7aba.ts.net";
-    in {
+    devices = with config.services.tailscale; {
       Laptop = {
         id = "WVY2A3Q-R5OBFOW-UPSG77Z-FDMGETT-K4AIIGM-MSSXJRE-BRTQXSN-HC2KVAF";
         introducer = true;
-        addresses = [ "tcp://hansan-laptop.${tailscaleDomain}:22000" ];
+        addresses = [ "tcp://hansan-laptop.${tailnetName}:22000" ];
       };
       Phone = {
         id = "KYLVEZL-RUMAOH3-EN43MXV-QXSTIMT-ABMWQCB-A3SNTTJ-MUYJK7C-KYIFJQT";
@@ -29,7 +27,7 @@
       Desktop = {
         id = "I4VJCRD-G2YEKD6-YEI3UYN-CP6KT3T-F25MBXL-WNQFSBQ-JESNMZO-JYF7NQZ";
         introducer = true;
-        addresses = [ "tcp://hansan-desktop.${tailscaleDomain}:22000" ];
+        addresses = [ "tcp://hansan-desktop.${tailnetName}:22000" ];
       };
     };
 
