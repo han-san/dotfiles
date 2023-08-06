@@ -56,6 +56,8 @@
     tailscale
     emacs
     git
+    gnumake
+    ripgrep
   ];
 }
 
