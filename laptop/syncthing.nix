@@ -21,13 +21,13 @@
         };
       };
 
-    folders = {
-      "${config.services.syncthing.dataDir}/Keepass" = {
+    folders = with config.services.syncthing; {
+      "${dataDir}/Keepass" = {
         id = "cncxg-cggmc";
         label = "Keepass";
         devices = [ "Phone" "Desktop" "Federer" ];
       };
-      "${config.services.syncthing.dataDir}/Todos" = {
+      "${dataDir}/Todos" = {
         id = "nxmmm-bfstv";
         label = "Todos";
         devices = [ "Desktop" "Federer" ];

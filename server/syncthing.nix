@@ -31,18 +31,18 @@
       };
     };
 
-    folders = {
-      "${config.services.syncthing.dataDir}/Keepass" = {
+    folders = with config.services.syncthing; {
+      "${dataDir}/Keepass" = {
         id = "cncxg-cggmc";
         label = "Keepass";
         devices = [ "Laptop" "Phone" "Desktop" ];
       };
-      "${config.services.syncthing.dataDir}/Todos" = {
+      "${dataDir}/Todos" = {
         id = "nxmmm-bfstv";
         label = "Todos";
         devices = [ "Laptop" "Desktop" ];
       };
-      "${config.services.syncthing.dataDir}/Projects" = {
+      "${dataDir}/Projects" = {
           id = "gqiul-n9por";
           label = "Projects";
           devices = [ "Laptop" "Desktop" ];
