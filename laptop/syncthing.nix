@@ -12,7 +12,7 @@
           id = "KYLVEZL-RUMAOH3-EN43MXV-QXSTIMT-ABMWQCB-A3SNTTJ-MUYJK7C-KYIFJQT";
         };
         Desktop = {
-          id = "I4VJCRD-G2YEKD6-YEI3UYN-CP6KT3T-F25MBXL-WNQFSBQ-JESNMZO-JYF7NQZ";
+          id = "76GGNXJ-XQFOS4V-YNPSQG3-7DT7I5O-LE7KXO6-XBU4FEG-HGMG7ZH-HFXPWQO";
           addresses = [ "tcp://hansan-desktop.${tailnetName}:22000" ];
         };
         Federer = {
