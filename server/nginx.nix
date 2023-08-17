@@ -5,15 +5,15 @@
       enable = true;
       recommendedGzipSettings = true;
 
-      virtualHosts."${tailnetName}" =
+      virtualHosts."federer.${tailnetName}" =
         {
           root = "/var/www";
           locations = {
             "/jellyfin" = {
-              return = "301 http://${tailnetName}:8096/";
+              return = "301 http://federer.${tailnetName}:8096/";
             };
             "/syncthing" = {
-              return = "301 http://${tailnetName}:8384/";
+              return = "301 http://federer.${tailnetName}:8384/";
             };
           };
         };
