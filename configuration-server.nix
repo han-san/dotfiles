@@ -9,7 +9,6 @@
     [
       ./server/syncthing.nix
       ./server/nginx.nix
-      ./server/postgresql.nix
       ./configuration-common.nix
     ];
 
