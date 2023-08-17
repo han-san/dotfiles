@@ -47,7 +47,7 @@
     fstrim.enable = true;
   };
 
-  fonts.fonts = with pkgs; [
+  fonts.packages = with pkgs; [
     iosevka
     noto-fonts-cjk
   ];

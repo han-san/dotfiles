@@ -6,7 +6,7 @@
     dataDir = "/home/johan/Sync";
     openDefaultPorts = true;
 
-    devices = with config.services.tailscale;
+    settings.devices = with config.services.tailscale;
       {
         Phone = {
           id = "KYLVEZL-RUMAOH3-EN43MXV-QXSTIMT-ABMWQCB-A3SNTTJ-MUYJK7C-KYIFJQT";
@@ -21,7 +21,7 @@
         };
       };
 
-    folders = with config.services.syncthing; {
+    settings.folders = with config.services.syncthing; {
       "${dataDir}/Keepass" = {
         id = "cncxg-cggmc";
         label = "Keepass";
