@@ -34,12 +34,42 @@
       jellyfin = {
           enable = true;
           openFirewall = true;
+          group = "media";
       };
+
+      transmission = {
+        enable = true;
+        openPeerPorts = true;
+        openRPCPort = true;
+        group = "media";
+        settings = {
+          rpc-bind-address = "0.0.0.0";
+          rpc-whitelist-enabled = false;
+          rpc-host-whitelist-enabled = true;
+          rpc-host-whitelist = "federer.${config.services.tailscale.tailnetName}";
+        };
+      };
+
+      sonarr = {
+        enable = true;
+        openFirewall = true;
+        group = "media";
+      };
+
+      radarr = {
+        enable = true;
+        openFirewall = true;
+        group = "media";
+      };
+  };
+
+  users.groups = {
+    media = {};
   };
 
   users.users.johan = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "media" ];
     packages = with pkgs; [
       kakoune
     ];
