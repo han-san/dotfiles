@@ -57,6 +57,12 @@
 
     # Enable the OpenSSH daemon.
     openssh.enable = true;
+
+    locate = {
+      enable = true;
+      locate = pkgs.plocate;
+      localuser = null; # plocate doesn't support this option.
+    };
   };
 
   nixpkgs.config.allowUnfree = true;
