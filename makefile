@@ -6,5 +6,8 @@ laptop:
 server:
 	cp -b configuration-server.nix /etc/nixos/configuration.nix
 	cp -br * /etc/nixos/
+desktop:
+	cp -b configuration-desktop.nix /etc/nixos/configuration.nix
+	cp -br * /etc/nixos/
 
-.PHONY: default laptop server
+.PHONY: default laptop server desktop
