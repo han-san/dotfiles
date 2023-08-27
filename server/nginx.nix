@@ -7,6 +7,8 @@
 
       virtualHosts."federer.${tailnetName}" =
         {
+          sslCertificate = ./federer.siren-tuna.ts.net.crt;
+          sslCertificateKey = ./federer.siren-tuna.ts.net.key;
           root = "/var/www";
           locations = {
             "/jellyfin" = {

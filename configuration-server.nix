@@ -7,8 +7,10 @@
 {
   imports =
     [
+      <home-manager/nixos>
       ./server/syncthing.nix
       ./server/nginx.nix
+      #      ./server/tinytinyrss.nix
       ./configuration-common.nix
     ];
 
@@ -42,11 +44,15 @@
         openPeerPorts = true;
         openRPCPort = true;
         group = "media";
+        #credentialsFile = somearcnixthing?;
         settings = {
+          #download-dir = "/media/johan/downloads";
           rpc-bind-address = "0.0.0.0";
           rpc-whitelist-enabled = false;
           rpc-host-whitelist-enabled = true;
           rpc-host-whitelist = "federer.${config.services.tailscale.tailnetName}";
+          ratio-limit-enabled = true;
+          ratio-limit = 0;
         };
       };
 
@@ -54,6 +60,7 @@
         enable = true;
         openFirewall = true;
         group = "media";
+        #group = "";
       };
 
       radarr = {
@@ -61,6 +68,11 @@
         openFirewall = true;
         group = "media";
       };
+  };
+
+  security.acme = {
+    acceptTerms = true;
+    defaults.email = "johan.sandred@protonmail.com";
   };
 
   users.groups = {
@@ -75,7 +87,7 @@
     ];
     openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINHog6/0hxWQiHsnbomKBn1nLK7smKYfHGk0YcfOVq4n johan@hansan-laptop"
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAsSoptyi4et13k8Fmngq211lsNyyF44yxj33a52BVXA johan@hansan-desktop"
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGxlasMoSJCYmVmT3T8HLmWYqoUX+0NO5gM5xaiRYto7 johan@hansan-desktop"
     ];
   };
 
@@ -88,5 +100,11 @@
     gnumake
     ripgrep
   ];
+
+  home-manager = {
+    useUserPackages = true;
+    useGlobalPkgs = true;
+    users.johan = import ./home/home-server.nix;
+  };
 }
 

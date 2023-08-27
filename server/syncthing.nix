@@ -25,7 +25,7 @@
         introducer = true;
       };
       Desktop = {
-        id = "76GGNXJ-XQFOS4V-YNPSQG3-7DT7I5O-LE7KXO6-XBU4FEG-HGMG7ZH-HFXPWQO";
+        id = "MMQBJXB-G3RVVZO-AQYIX4P-TTVK4II-YV2VIRC-EETDNXE-D7362BO-VPVETAM";
         introducer = true;
         addresses = [ "tcp://hansan-desktop.${tailnetName}:22000" ];
       };

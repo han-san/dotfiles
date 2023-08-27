@@ -10,12 +10,7 @@
       rmdir = "rmdir -pv";
       rm = "rm -Iv";
 
-      make = "make -j16";
       cmake = "cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1";
-
-      #ls = "ls --color=auto -h --group-directories-first";
-      #ll = "ls -l";
-      #la = "ls -A";
 
       grep = "rg";
       fgrep = "fgrep --color=auto";
