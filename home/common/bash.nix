@@ -2,7 +2,7 @@
 {
   programs.bash = {
     enable = true;
-    historyControl = [ "ignoredups" ];
+    historyControl = [ "ignoredups" "erasedups" "ignorespace" ];
     shellAliases = {
       cp = "cp -iv";
       mv = "mv -iv";
