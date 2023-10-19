@@ -108,6 +108,8 @@
     tmux #hm
     tree
     zathura #hm
+    wl-clipboard
+    wl-clipboard-x11
 
     # Development
     ## General
