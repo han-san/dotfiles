@@ -26,7 +26,6 @@
   set report=0
   set ignorecase
   set smartcase
-  set spell
   set spelllang=en,sv
   set backupdir-=.
   set backup
