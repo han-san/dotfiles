@@ -28,6 +28,7 @@
     sessionVariables = rec {
       LESSHISTFILE = "-";
       DOTNET_CLI_TELEMETRY_OPTOUT = 1;
+      HISTFILE = "${config.xdg.stateHome}/bash/history";
     };
 
     packages = with pkgs; [

@@ -16,9 +16,19 @@
       . ${config.home.homeDirectory}/.profile
       '';
 
-    sessionVariables = {
+    sessionVariables =
+      with config.xdg;
+    {
       CMAKE_EXPORT_COMPILE_COMMANDS = 1;
       EDITOR = "kak";
+      CONAN_USER_HOME = configHome;
+      CARGO_HOME = "${dataHome}/cargo";
+      GRADLE_USER_HOME = "${dataHome}/gradle";
+      GTK2_RC_FILES = "${configHome}/gtk-2.0/gtkrc";
+      XCOMPOSECACHE = "${cacheHome}/X11/xcompose";
+      NODE_REPL_HISTORY = "${dataHome}/node_repl_history";
+      NUGET_PACKAGES = "${dataHome}/NuGetPackages";
+      OMNISHARPHOME = "${configHome}/omnisharp";
     };
 
     packages = with pkgs; [
