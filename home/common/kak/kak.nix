@@ -8,6 +8,7 @@
     config = {
       indentWidth = 2;
       ui.assistant = "none";
+      ui.enableMouse = true;
       showMatching = true;
       colorScheme = "gruvbox-dark";
       numberLines = {
