@@ -105,4 +105,6 @@ in
   (makeKeyMap "user" "b" ":b " "switch buffer")
   (makeKeyMap "user" "m" ":make<ret>" "make")
   (makeKeyMap "user" "l" ":enter-user-mode lsp<ret>" "LSP mode")
+  (makeKeyMap "user" "y" "<a-|> wl-copy<ret>" "Copy selection to system clipboard")
+  (makeKeyMap "user" "p" "! wl-paste -n<ret>" "Paste from system clipboard")
 ]
