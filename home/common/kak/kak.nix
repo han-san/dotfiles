@@ -10,6 +10,10 @@
       ui.assistant = "none";
       ui.enableMouse = true;
       showMatching = true;
+      scrollOff = {
+        columns = 2;
+        lines = 3;
+      };
       colorScheme = "gruvbox-dark";
       numberLines = {
         enable = true;
