@@ -100,7 +100,7 @@
     enable = true;
   };
 
-  programs.skim = {
+  programs.fzf = {
     enable = true;
     changeDirWidgetCommand = "fd --type d";
     defaultCommand = "fd --type f";

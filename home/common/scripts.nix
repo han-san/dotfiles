@@ -6,7 +6,7 @@
     # Custom
     (writeShellApplication {
       name = "snippet";
-      runtimeInputs = [ fd skim ];
+      runtimeInputs = [ fd fzf ];
       text = (builtins.readFile "${SCRIPTS_DIR}/snippet.bash");
     })
     (writeShellApplication {
@@ -15,7 +15,7 @@
     })
     (writeShellApplication {
       name = "todo-complete";
-      runtimeInputs = [ skim ];
+      runtimeInputs = [ fzf ];
       text = (builtins.readFile "${SCRIPTS_DIR}/todo-complete.sh");
     })
     (writeShellApplication {
