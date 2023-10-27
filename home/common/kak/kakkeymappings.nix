@@ -88,6 +88,7 @@ in
   (makeKeyMap "insert" "<a-f>" "<esc>w;i" null)
   (makeKeyMap "insert" "<c-d>" "<esc>c" null)
   (makeKeyMap "insert" "<c-k>" "<esc><a-l>c" null)
+  (makeKeyMap "insert" "<c-y>" "<esc>Pa" null)
   (makeKeyMap "insert" "<c-w>" "<esc>bc" null)
   (makeKeyMap "prompt" "<c-b>" "<left>" null)
   (makeKeyMap "prompt" "<c-f>" "<right>" null)
@@ -96,6 +97,7 @@ in
   (makeKeyMap "goto" "n" "j" "buffer bottom")
   (makeKeyMap "goto" "e" "k" "buffer top")
   (makeKeyMap "goto" "i" "l" "line end")
+  (makeKeyMap "goto" "m" "i" "line begin")
   (makeKeyMap "goto" "j" "e" "buffer end")
   (makeKeyMap "goto" "u" "i" "line non-blank start")
   (makeKeyMap "view" "n" "j" "scroll down")
@@ -104,7 +106,27 @@ in
   (makeKeyMap "user" "w" ":w<ret>" "save buffer")
   (makeKeyMap "user" "b" ":b " "switch buffer")
   (makeKeyMap "user" "m" ":make<ret>" "make")
+  (makeKeyMap "user" "c" ":comment-line<ret>" "comment selected lines")
+
+  # LSP binds
   (makeKeyMap "user" "l" ":enter-user-mode lsp<ret>" "LSP mode")
-  (makeKeyMap "user" "y" "<a-|> wl-copy<ret>" "Copy selection to system clipboard")
-  (makeKeyMap "user" "p" "! wl-paste -n<ret>" "Paste from system clipboard")
+
+  # System clipboard binds
+  (makeKeyMap "user" "y" "<a-|> wl-copy<ret>" "copy selection to system clipboard")
+  (makeKeyMap "user" "p" "! wl-paste -n<ret>" "paste from system clipboard")
+
+  # fzf binds
+  (makeKeyMap "user" "f" ":require-module fzf; require-module fzf-file; fzf-file<ret>" "Select file to edit")
+
+  # mirror binds
+  (makeKeyMap "user" "s" ":enter-user-mode mirror<ret>" "mirror mode")
+  (makeKeyMap "user" "S" ":enter-user-mode -lock mirror<ret>" "mirror mode (lock)")
+
+  # harpoon binds
+  (makeKeyMap "user" "h" ":enter-user-mode harpoon<ret>" "harpoon mode")
+  (makeKeyMap "harpoon" "a" ":harpoon-add<ret>" "add buffer to harpoon list")
+  (makeKeyMap "harpoon" "e" ":harpoon-show-list<ret>" "edit the harpoon list")
+  (makeKeyMap "normal" "<c-a-n>" ":harpoon-nav 1<ret>" "switch to buffer 1")
+  (makeKeyMap "normal" "<c-a-e>" ":harpoon-nav 2<ret>" "switch to buffer 2")
+  (makeKeyMap "normal" "<c-a-o>" ":harpoon-nav 3<ret>" "switch to buffer 3")
 ]
