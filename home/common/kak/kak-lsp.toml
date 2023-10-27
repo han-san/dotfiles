@@ -103,11 +103,10 @@ roots = [".git", "dub.sdl", "dub.json"]
 command = "dls"
 
 [language.dart]
-# start shell to find path to dart analysis server source
 filetypes = ["dart"]
 roots = ["pubspec.yaml", ".git"]
-command = "sh"
-args = ["-c", "dart $(dirname $(command -v dart))/snapshots/analysis_server.dart.snapshot --lsp"]
+command = "dart"
+args = ["language-server"]
 
 [language.elixir]
 filetypes = ["elixir"]

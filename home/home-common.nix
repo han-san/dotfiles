@@ -38,6 +38,7 @@
       universal-ctags
       shellcheck
       shfmt
+      rnix-lsp
     ];
   };
 
