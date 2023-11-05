@@ -15,19 +15,19 @@
     };
 
     devices = with config.services.tailscale; {
-      Laptop = {
+      Hermes = {
         id = "WVY2A3Q-R5OBFOW-UPSG77Z-FDMGETT-K4AIIGM-MSSXJRE-BRTQXSN-HC2KVAF";
         introducer = true;
-        addresses = [ "tcp://hansan-laptop.${tailnetName}:22000" ];
+        addresses = [ "tcp://hermes.${tailnetName}:22000" ];
       };
       Phone = {
         id = "KYLVEZL-RUMAOH3-EN43MXV-QXSTIMT-ABMWQCB-A3SNTTJ-MUYJK7C-KYIFJQT";
         introducer = true;
       };
-      Desktop = {
+      Gaia = {
         id = "MMQBJXB-G3RVVZO-AQYIX4P-TTVK4II-YV2VIRC-EETDNXE-D7362BO-VPVETAM";
         introducer = true;
-        addresses = [ "tcp://hansan-desktop.${tailnetName}:22000" ];
+        addresses = [ "tcp://gaia.${tailnetName}:22000" ];
       };
     };
 
@@ -35,17 +35,17 @@
       "${dataDir}/Keepass" = {
         id = "cncxg-cggmc";
         label = "Keepass";
-        devices = [ "Laptop" "Phone" "Desktop" ];
+        devices = [ "Hermes" "Phone" "Gaia" ];
       };
       "${dataDir}/Todos" = {
         id = "nxmmm-bfstv";
         label = "Todos";
-        devices = [ "Laptop" "Desktop" ];
+        devices = [ "Hermes" "Gaia" ];
       };
       "${dataDir}/Projects" = {
           id = "gqiul-n9por";
           label = "Projects";
-          devices = [ "Laptop" "Desktop" ];
+          devices = [ "Hermes" "Gaia" ];
       };
     };
   };

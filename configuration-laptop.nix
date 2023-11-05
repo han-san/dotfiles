@@ -22,7 +22,7 @@
   boot.supportedFilesystems = [ "ntfs" ];
 
   networking = {
-    hostName = "hansan-laptop"; # Define your hostname.
+    hostName = "Hermes"; # Define your hostname.
 
     # The global useDHCP flag is deprecated, therefore explicitly set to false here.
     # Per-interface useDHCP will be mandatory in the future, so this generated config

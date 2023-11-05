@@ -11,9 +11,9 @@
         Phone = {
           id = "KYLVEZL-RUMAOH3-EN43MXV-QXSTIMT-ABMWQCB-A3SNTTJ-MUYJK7C-KYIFJQT";
         };
-        Laptop = {
+        Hermes = {
           id = "WVY2A3Q-R5OBFOW-UPSG77Z-FDMGETT-K4AIIGM-MSSXJRE-BRTQXSN-HC2KVAF";
-          addresses = [ "tcp://hansan-laptop.${tailnetName}:22000" ];
+          addresses = [ "tcp://hermes.${tailnetName}:22000" ];
         };
         Federer = {
           id = "YFXUNZH-6V2DILS-H2BKHKD-7C4EOY7-7745UPQ-Z6TYDLI-V32JYT2-PGFAEQJ";
@@ -25,17 +25,17 @@
       "${dataDir}/Keepass" = {
         id = "cncxg-cggmc";
         label = "Keepass";
-        devices = [ "Phone" "Laptop" "Federer" ];
+        devices = [ "Phone" "Hermes" "Federer" ];
       };
       "${dataDir}/Todos" = {
         id = "nxmmm-bfstv";
         label = "Todos";
-        devices = [ "Laptop" "Federer" ];
+        devices = [ "Hermes" "Federer" ];
       };
       "/home/johan/Projects" = {
         id = "gqiul-n9por";
         label = "Projects";
-        devices = [ "Laptop" "Federer" ];
+        devices = [ "Hermes" "Federer" ];
       };
     };
   };

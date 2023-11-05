@@ -35,7 +35,7 @@
   boot.supportedFilesystems = [ "ntfs" ];
 
   networking = {
-    hostName = "hansan-desktop"; #Define your hostname.
+    hostName = "Gaia"; #Define your hostname.
 
     networkmanager.enable = true;
 
