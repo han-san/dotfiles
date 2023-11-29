@@ -6,8 +6,8 @@
     dataDir = "/home/johan/Sync";
     openDefaultPorts = true;
 
-    settings.devices = with config.services.tailscale;
-      {
+    settings = {
+      devices = with config.services.tailscale; {
         Phone = {
           id = "KYLVEZL-RUMAOH3-EN43MXV-QXSTIMT-ABMWQCB-A3SNTTJ-MUYJK7C-KYIFJQT";
         };
@@ -21,21 +21,22 @@
         };
       };
 
-    settings.folders = with config.services.syncthing; {
-      "${dataDir}/Keepass" = {
-        id = "cncxg-cggmc";
-        label = "Keepass";
-        devices = [ "Phone" "Gaia" "Federer" ];
-      };
-      "${dataDir}/Todos" = {
-        id = "nxmmm-bfstv";
-        label = "Todos";
-        devices = [ "Gaia" "Federer" ];
-      };
-      "/home/johan/Projects" = {
-        id = "gqiul-n9por";
-        label = "Projects";
-        devices = [ "Gaia" "Federer" ];
+      folders = with config.services.syncthing; {
+        "${dataDir}/Keepass" = {
+          id = "cncxg-cggmc";
+          label = "Keepass";
+          devices = [ "Phone" "Gaia" "Federer" ];
+        };
+        "${dataDir}/Todos" = {
+          id = "nxmmm-bfstv";
+          label = "Todos";
+          devices = [ "Gaia" "Federer" ];
+        };
+        "/home/johan/Projects" = {
+          id = "gqiul-n9por";
+          label = "Projects";
+          devices = [ "Gaia" "Federer" ];
+        };
       };
     };
   };
