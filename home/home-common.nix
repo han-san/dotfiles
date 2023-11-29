@@ -106,6 +106,7 @@
     changeDirWidgetCommand = "fd --type d";
     defaultCommand = "fd --type f";
     fileWidgetCommand = "fd --type f";
+    fileWidgetOptions = [ "--preview='bat {}'" ];
     # Skim has a script for tmux integration, but there doesn't seem to
     # be a way to specify that that's what I want to use.
   };
