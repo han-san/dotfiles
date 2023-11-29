@@ -134,6 +134,8 @@
     remotePlay.openFirewall = true;
   };
 
+  programs.light.enable = true;
+
   programs.adb.enable = true;
   virtualisation.libvirtd.enable = true;
 
@@ -145,6 +147,7 @@
       "wheel"
       "networkmanager"
       "adbusers"
+      "video"
     ];
   };
 
