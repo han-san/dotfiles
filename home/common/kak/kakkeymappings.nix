@@ -44,24 +44,10 @@ in
   (makeKeyMap "normal" "<a-L>" "<a-U>" null)
   (makeKeyMap "normal" "<a-J>" "<a-E>" null)
   (makeKeyMap "normal" "<a-U>" "<a-I>" null)
-  (makeKeyMap "normal" "<c-m>" "<c-h>" null)
-  (makeKeyMap "normal" "<c-n>" "<c-j>" null)
-  (makeKeyMap "normal" "<c-e>" "<c-k>" null)
-  (makeKeyMap "normal" "<c-i>" "<c-l>" null)
-  (makeKeyMap "normal" "<c-k>" "<c-n>" null)
-  (makeKeyMap "normal" "<c-h>" "<c-m>" null)
-  (makeKeyMap "normal" "<c-l>" "<c-u>" null)
-  (makeKeyMap "normal" "<c-j>" "<c-e>" null)
-  (makeKeyMap "normal" "<c-u>" "<c-i>" null)
-  (makeKeyMap "normal" "<c-M>" "<c-H>" null)
-  (makeKeyMap "normal" "<c-N>" "<c-J>" null)
-  (makeKeyMap "normal" "<c-E>" "<c-K>" null)
-  (makeKeyMap "normal" "<c-I>" "<c-L>" null)
-  (makeKeyMap "normal" "<c-K>" "<c-N>" null)
-  (makeKeyMap "normal" "<c-H>" "<c-M>" null)
-  (makeKeyMap "normal" "<c-L>" "<c-U>" null)
-  (makeKeyMap "normal" "<c-J>" "<c-E>" null)
-  (makeKeyMap "normal" "<c-U>" "<c-I>" null)
+  (makeKeyMap "normal" "<c-n>" "<c-j>" null) # c-n is unbound, c-j is move forward in changes history.
+  (makeKeyMap "normal" "<c-e>" "<c-k>" null) # c-e is unbound, c-k is move backward in changes history.
+  (makeKeyMap "normal" "<c-k>" "<c-n>" null) # c-k is move backward in changes history(x), c-n is unbound.
+  (makeKeyMap "normal" "<c-j>" "<c-e>" null) # c-j is move forward in changes history(x), c-e is unbound.
   (makeKeyMap "normal" "<c-a-m>" "<c-a-h>" null)
   (makeKeyMap "normal" "<c-a-n>" "<c-a-j>" null)
   (makeKeyMap "normal" "<c-a-e>" "<c-a-k>" null)
