@@ -44,6 +44,7 @@
       jetbrains.rider
       jetbrains.clion
       qtcreator
+      (pkgs.callPackage ./cppfront.nix {})
 
       libreoffice
       # Other
