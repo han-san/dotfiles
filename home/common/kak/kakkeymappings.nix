@@ -102,7 +102,7 @@ in
   (makeKeyMap "user" "p" "! wl-paste -n<ret>" "paste from system clipboard")
 
   # fzf binds
-  (makeKeyMap "user" "f" ":require-module fzf; require-module fzf-file; fzf-file<ret>" "Select file to edit")
+  (makeKeyMap "user" "f" ":require-module fzf; fzf-mode<ret>" "fzf mode")
 
   # mirror binds
   (makeKeyMap "user" "s" ":enter-user-mode mirror<ret>" "mirror mode")
