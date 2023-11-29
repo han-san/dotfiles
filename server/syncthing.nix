@@ -33,6 +33,11 @@
       };
 
       folders = with config.services.syncthing; {
+        "${dataDir}/CV" = {
+          id = "CV";
+          label = "CV";
+          devices = [ "Hermes" "Gaia" ];
+        };
         "${dataDir}/Keepass" = {
           id = "cncxg-cggmc";
           label = "Keepass";
