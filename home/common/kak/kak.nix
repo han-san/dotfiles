@@ -23,7 +23,7 @@
       hooks = [
         {
           name = "WinSetOption";
-          option = "filetype=(haskell|c|cpp|rust|python|javascript|typescript|latex|dart|nix)";
+          option = "filetype=(haskell|c|cpp|rust|python|javascript|typescript|latex|dart|nix|go)";
           commands = "lsp-enable-window";
         }
         {
