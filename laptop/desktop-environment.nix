@@ -6,7 +6,7 @@
 
       # Configure keymap in X11
       layout = "us";
-      xkbVariant = "colemak";
+      xkbVariant = "colemak_dh_iso";
       xkbOptions = "grp:win_space_toggle";
 
       displayManager.gdm.enable = true;

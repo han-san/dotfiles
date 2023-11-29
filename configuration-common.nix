@@ -47,7 +47,7 @@
   #   LC_KEYBOARD = "sv_SE.UTF-8";
   };
 
-  console.keyMap = "colemak";
+  console.keyMap = ./colemak_dh_iso.map;
 
   services = {
     tailscale = {
