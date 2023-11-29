@@ -115,4 +115,10 @@ in
   (makeKeyMap "normal" "<c-a-n>" ":harpoon-nav 1<ret>" "switch to buffer 1")
   (makeKeyMap "normal" "<c-a-e>" ":harpoon-nav 2<ret>" "switch to buffer 2")
   (makeKeyMap "normal" "<c-a-o>" ":harpoon-nav 3<ret>" "switch to buffer 3")
+
+  # Terminals implementing the kitty keyboard protocol can choose to distinguish between c-[ and esc, so we need to rebind it.
+  (makeKeyMap "insert" "<c-[>" "<esc>" "")
+  (makeKeyMap "menu" "<c-[>" "<esc>" "")
+  (makeKeyMap "prompt" "<c-[>" "<esc>" "")
 ]
+
