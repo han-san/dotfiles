@@ -66,6 +66,7 @@
     clock24 = true;
     escapeTime = 0;
     shortcut = "q";
+    baseIndex = 1;
     terminal = "xterm-256color";
     extraConfig = ''
       set-option -sa terminal-features \",xterm-256color:RGB\"
