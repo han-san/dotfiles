@@ -145,4 +145,20 @@
     enable = true;
   };
 
+  programs.foot = {
+    enable = true;
+    settings = {
+      main = {
+        font = "Iosevka:size=9";
+        notify = "${pkgs.dunst}/bin/dunstify -a \${app-id} -i \${app-id} \${title} \${body}";
+      };
+      csd = {
+        color = "ff303030";
+        button-color = "ffeeeeee";
+        button-minimize-color = "ff3f3f3f";
+        button-maximize-color = "ff3f3f3f";
+        button-close-color = "ff3f3f3f";
+      };
+    };
+  };
 }
