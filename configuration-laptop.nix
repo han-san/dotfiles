@@ -129,6 +129,8 @@
     nixpkgs-fmt
   ];
 
+  programs.sway.enable = true;
+
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
