@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 
 {
   xdg.configFile."kak-lsp/kak-lsp.toml".source = ./kak-lsp.toml;
@@ -77,6 +77,9 @@
         lsp-auto-signature-help-enable
         set-option global lsp_hover_anchor true
         set-option global lsp_auto_show_code_actions true
+
+        add-highlighter global/ regex \b(TODO|FIXME|XXX|NOTE)\b 0:default+rb
+        source ${config.home.sessionVariables.PROJECTS_DIR}/impurekaktestrc.kak
       '';
 
 
