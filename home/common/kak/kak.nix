@@ -23,8 +23,13 @@
       hooks = [
         {
           name = "WinSetOption";
-          option = "filetype=(haskell|c|cpp|rust|python|javascript|typescript|latex|dart|nix|go)";
-          commands = "lsp-enable-window";
+          option = "filetype=(haskell|c|cpp|rust|python|javascript|typescript|latex|dart|nix|go|cmake)";
+          commands = ''
+            lsp-enable-window
+            lsp-inlay-diagnostics-enable window
+            lsp-inlay-hints-enable window
+            lsp-inlay-code-lenses-enable window
+          '';
         }
         {
           name = "WinSetOption";
@@ -67,8 +72,11 @@
     };
     extraConfig =
       ''
-      eval %sh{kak-lsp --kakoune -s $kak_session}
-      set global lsp_hover_anchor true
+        eval %sh{kak-lsp --kakoune -s $kak_session}
+        set global lsp_hover_anchor true
+        lsp-auto-signature-help-enable
+        set-option global lsp_hover_anchor true
+        set-option global lsp_auto_show_code_actions true
       '';
 
 

@@ -74,6 +74,11 @@ roots = ["compile_commands.json", ".clangd"]
 command = "clangd"
 args = ["--clang-tidy"]
 
+[language.cmake]
+filetypes = ["cmake"]
+roots = [".git"]
+command = "cmake-language-server"
+
 [language.crystal]
 filetypes = ["crystal"]
 roots = ["shard.yml"]
@@ -148,16 +153,28 @@ roots = ["package.json"]
 command = "html-languageserver"
 args = ["--stdio"]
 
-[language.deno]
-filetypes = ["typescript", "javascript"]
-roots = [".git"]
-command = "deno"
-args = ["lsp"]
-settings_section = "denosettings"
+# [language.deno]
+# filetypes = ["typescript", "javascript"]
+# roots = [".git"]
+# command = "deno"
+# args = ["lsp"]
+# settings_section = "denosettings"
 
-[language.deno.settings.denosettings]
-enable = true
-lint = true
+# [language.deno.settings.denosettings]
+# enable = true
+# lint = true
+
+[language.jsx]
+filetypes = ["javascript"]
+roots = ["package.json", "tsconfig.json", ".git", ".hg"]
+command = "typescript-language-server"
+args = ["--stdio"]
+
+[language.tsx]
+filetypes = ["typescript"]
+roots = ["package.json", "tsconfig.json", ".git", ".hg"]
+command = "typescript-language-server"
+args = ["--stdio"]
 
 [language.json]
 filetypes = ["json"]
