@@ -143,6 +143,99 @@
   programs.vscode = {
     enable = true;
     package = pkgs.vscode.fhs;
+    keybindings =
+      let
+        makeKeyMap = k: c: w:
+          {
+            key = k;
+            command = c;
+            when = w;
+          };
+      in
+      [
+        (makeKeyMap "m" "dance.select.left.jump" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "h" "-dance.select.left.jump" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "h" "dance.seek.enclosing" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "m" "-dance.seek.enclosing" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "k" "dance.search.next" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "n" "-dance.search.next" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "e" "dance.select.up.jump" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "k" "-dance.select.up.jump" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "j" "dance.seek.wordEnd" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "e" "-dance.seek.wordEnd" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "n" "dance.select.down.jump" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "j" "-dance.select.down.jump" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "u" "dance.modes.insert.before" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "i" "-dance.modes.insert.before" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "l" "dance.history.undo" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "u" "-dance.history.undo" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "i" "dance.select.right.jump" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "l" "-dance.select.right.jump" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "shift+i" "dance.select.right.extend" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "shift+l" "-dance.select.right.extend" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "shift+alt+i" "dance.select.lineEnd.extend" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "shift+alt+l" "-dance.select.lineEnd.extend" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "shift+u" "dance.select.insert.lineStart" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "shift+i" "-dance.select.insert.lineStart" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "shift+alt+u" "editor.action.insertCursorAtEndOfEachLineSelected" "editorTextFocus")
+        (makeKeyMap "shift+alt+i" "-editor.action.insertCursorAtEndOfEachLineSelected" "editorTextFocus")
+        (makeKeyMap "shift+h" "dance.seek.enclosing.extend" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "shift+m" "-dance.seek.enclosing.extend" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "shift+alt+h" "dance.seek.enclosing.extend.backward" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "shift+alt+m" "-dance.seek.enclosing.extend.backward" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "shift+m" "dance.select.left.extend" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "shift+h" "-dance.select.left.extend" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "shift+alt+m" "dance.select.lineStart.extend" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "shift+alt+h" "-dance.select.lineStart.extend" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "shift+k" "dance.search.next.add" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "shift+n" "-dance.search.next.add" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "shift+alt+k" "dance.search.previous.add" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "shift+alt+n" "-dance.search.previous.add" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "shift+e" "dance.select.up.extend" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "shift+k" "-dance.select.up.extend" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "shift+alt+e" "dance.selections.filter.regexp.inverse" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "shift+alt+k" "-dance.selections.filter.regexp.inverse" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "shift+alt+j" "dance.seek.wordEnd.ws.extend" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "shift+alt+e" "-dance.seek.wordEnd.ws.extend" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "shift+j" "dance.seek.wordEnd.extend" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "shift+e" "-dance.seek.wordEnd.extend" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "shift+l" "dance.history.redo" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "shift+u" "-dance.history.redo" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "shift+alt+l" "dance.history.redo.selections" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "shift+alt+u" "-dance.history.redo.selections" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "shift+n" "dance.select.down.extend" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "shift+j" "-dance.select.down.extend" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "shift+alt+n" "dance.edit.join.select" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "shift+alt+j" "-dance.edit.join.select" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "alt+h" "dance.seek.enclosing.backward" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "alt+m" "-dance.seek.enclosing.backward" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "alt+e" "dance.selections.filter.regexp" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "alt+k" "-dance.selections.filter.regexp" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "alt+k" "dance.search.previous" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "alt+n" "-dance.search.previous" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "alt+j" "dance.seek.wordEnd.ws" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "alt+e" "-dance.seek.wordEnd.ws" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "alt+u" "dance.seek.askObject.inner" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "alt+i" "-dance.seek.askObject.inner" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "alt+u" "dance.seek.askObject.inner" "editorTextFocus && dance.mode == 'insert'")
+        (makeKeyMap "alt+i" "-dance.seek.askObject.inner" "editorTextFocus && dance.mode == 'insert'")
+        (makeKeyMap "alt+n" "dance.edit.join" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "alt+j" "-dance.edit.join" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "alt+i" "dance.select.lineEnd" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "alt+l" "-dance.select.lineEnd" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "alt+l" "dance.history.undo.selections" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "alt+u" "-dance.history.undo.selections" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "alt+m" "dance.select.lineStart" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "alt+h" "-dance.select.lineStart" "editorTextFocus && dance.mode == 'normal'")
+        (makeKeyMap "ctrl+o" "workbench.action.navigateBack" "canNavigateBack")
+        (makeKeyMap "ctrl+i" "workbench.action.navigateForward" "canNavigateForward")
+
+        (makeKeyMap "ctrl+alt+n" "workbench.action.openEditorAtIndex1" null)
+        (makeKeyMap "ctrl+alt+e" "workbench.action.openEditorAtIndex2" null)
+        (makeKeyMap "ctrl+alt+i" "workbench.action.openEditorAtIndex3" null)
+        (makeKeyMap "ctrl+alt+o" "workbench.action.openEditorAtIndex4" null)
+
+      ];
   };
 
   services.dunst = {
