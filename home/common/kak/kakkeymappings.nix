@@ -94,8 +94,23 @@ in
   (makeKeyMap "user" "m" ":make<ret>" "make")
   (makeKeyMap "user" "c" ":comment-line<ret>" "comment selected lines")
 
+  # Git binds
+  (makeKeyMap "user" "g" ":enter-user-mode git<ret>" "git mode")
+  (makeKeyMap "git" "s" ":git status<ret>" "show status")
+  (makeKeyMap "git" "c" ":git commit<ret>" "commit staged changes")
+  (makeKeyMap "git" "d" ":git diff<ret>" "show diff")
+  (makeKeyMap "git" "l" ":git log<ret>" "show log")
+
   # LSP binds
   (makeKeyMap "user" "l" ":enter-user-mode lsp<ret>" "LSP mode")
+  (makeKeyMap "user" "i" ":lsp-inlay-hints-enable window<ret>" "enable inlay hints")
+  (makeKeyMap "user" "I" ":lsp-inlay-hints-disable window<ret>" "disable inlay hints")
+  (makeKeyMap "insert" "<tab>" "<a-;>:try lsp-snippets-select-next-placeholders catch %{ execute-keys -with-hooks <lt>tab> }<ret>" "select next snippet placeholder")
+  (makeKeyMap "object" "a" "<a-;>lsp-object<ret>" "LSP any symbol")
+  (makeKeyMap "object" "f" "<a-;>lsp-object Function Method<ret>" "LSP function or method")
+  (makeKeyMap "object" "o" "<a-;>lsp-object Struct Class Interface<ret>" "LSP class, struct, or interface")
+  (makeKeyMap "object" "d" "<a-;>lsp-diagnostic-object --include-warnings<ret>" "LSP warnings and errors")
+  (makeKeyMap "object" "D" "<a-;>lsp-diagnostic-object<ret>" "LSP errors")
 
   # System clipboard binds
   (makeKeyMap "user" "y" "<a-|> wl-copy<ret>" "copy selection to system clipboard")
