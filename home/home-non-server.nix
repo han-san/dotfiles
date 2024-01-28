@@ -63,6 +63,8 @@
       nodejs
       nodePackages.typescript
       deno #lsp
+      nodePackages.typescript-language-server
+      nodePackages.prettier
       ## Python
       python3
       #python-lsp-server #lsp
@@ -76,6 +78,7 @@
       clang-analyzer
       clang-tools
       cmake
+      cmake-language-server
       cmake-format
       conan
       cppcheck
