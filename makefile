@@ -9,5 +9,8 @@ server:
 desktop:
 	cp -b configuration-desktop.nix /etc/nixos/configuration.nix
 	cp -br * /etc/nixos/
+wsl:
+	cp -b configuration-wsl.nix /etc/nixos/configuration.nix
+	cp -br * /etc/nixos/
 
-.PHONY: default laptop server desktop
+.PHONY: default laptop server desktop wsl
