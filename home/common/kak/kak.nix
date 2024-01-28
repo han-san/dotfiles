@@ -36,12 +36,12 @@
           option = "filetype=rust";
           commands =
             ''
-            hook window -group rust-inlay-hints BufReload .* rust-analyzer-inlay-hints
-            hook window -group rust-inlay-hints NormalIdle .* rust-analyzer-inlay-hints
-            hook window -group rust-inlay-hints InsertIdle .* rust-analyzer-inlay-hints
-            hook -once -always window WinSetOption filetype=.* %{
-              remove-hooks window rust-inlay-hints
-            }
+              hook window -group rust-inlay-hints BufReload .* rust-analyzer-inlay-hints
+              hook window -group rust-inlay-hints NormalIdle .* rust-analyzer-inlay-hints
+              hook window -group rust-inlay-hints InsertIdle .* rust-analyzer-inlay-hints
+              hook -once -always window WinSetOption filetype=.* %{
+                remove-hooks window rust-inlay-hints
+              }
             '';
         }
         {
@@ -63,10 +63,10 @@
           name = "ModuleLoaded";
           option = "fzf-grep";
           commands =
-          ''
-            set-option global fzf_grep_command 'rg'
-            set-option global fzf_grep_preview_command 'bat'
-          '';
+            ''
+              set-option global fzf_grep_command 'rg'
+              set-option global fzf_grep_preview_command 'bat'
+            '';
         }
       ];
     };
@@ -111,12 +111,12 @@
             meta.homepage = "https://github.com/raiguard/kak-harpoon/";
           };
       in
-        [
-          kak-lsp
-          kak-fzf
-          kakoune-extra-filetypes # Adds highlighting to more filetypes.
-          kakoune-mirror
-          kak-harpoon
-        ];
+      [
+        kak-lsp
+        kak-fzf
+        kakoune-extra-filetypes # Adds highlighting to more filetypes.
+        kakoune-mirror
+        kak-harpoon
+      ];
   };
 }

@@ -1,12 +1,11 @@
-
 { config, pkgs, ... }:
 
 {
   imports = [
-      # Home Manager's channel must be added in order for this import to work.
-      <home-manager/nixos>
-      <nixos-wsl/modules>
-      ./configuration-common.nix
+    # Home Manager's channel must be added in order for this import to work.
+    <home-manager/nixos>
+    <nixos-wsl/modules>
+    ./configuration-common.nix
   ];
 
   wsl.enable = true;
@@ -16,14 +15,14 @@
     hostName = "Ouranos"; # Define your hostname.
 
     #firewall = {
-      #trustedInterfaces = [ config.services.tailscale.interfaceName ];
-      #allowedUDPPorts = [ config.services.tailscale.port ];
+    #trustedInterfaces = [ config.services.tailscale.interfaceName ];
+    #allowedUDPPorts = [ config.services.tailscale.port ];
     #};
   };
 
   #fonts.packages = with pkgs; [
-    #iosevka
-    #noto-fonts-cjk
+  #iosevka
+  #noto-fonts-cjk
   #];
 
   # List packages installed in system profile. To search, run:

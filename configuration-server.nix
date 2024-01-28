@@ -31,43 +31,43 @@
   };
 
   services = {
-      openssh.settings.PasswordAuthentication = false;
+    openssh.settings.PasswordAuthentication = false;
 
-      jellyfin = {
-          enable = true;
-          openFirewall = true;
-          group = "media";
-      };
+    jellyfin = {
+      enable = true;
+      openFirewall = true;
+      group = "media";
+    };
 
-      transmission = {
-        enable = true;
-        openPeerPorts = true;
-        openRPCPort = true;
-        group = "media";
-        #credentialsFile = somearcnixthing?;
-        settings = {
-          #download-dir = "/media/johan/downloads";
-          rpc-bind-address = "0.0.0.0";
-          rpc-whitelist-enabled = false;
-          rpc-host-whitelist-enabled = true;
-          rpc-host-whitelist = "federer.${config.services.tailscale.tailnetName}";
-          ratio-limit-enabled = true;
-          ratio-limit = 0;
-        };
+    transmission = {
+      enable = true;
+      openPeerPorts = true;
+      openRPCPort = true;
+      group = "media";
+      #credentialsFile = somearcnixthing?;
+      settings = {
+        #download-dir = "/media/johan/downloads";
+        rpc-bind-address = "0.0.0.0";
+        rpc-whitelist-enabled = false;
+        rpc-host-whitelist-enabled = true;
+        rpc-host-whitelist = "federer.${config.services.tailscale.tailnetName}";
+        ratio-limit-enabled = true;
+        ratio-limit = 0;
       };
+    };
 
-      sonarr = {
-        enable = true;
-        openFirewall = true;
-        group = "media";
-        #group = "";
-      };
+    sonarr = {
+      enable = true;
+      openFirewall = true;
+      group = "media";
+      #group = "";
+    };
 
-      radarr = {
-        enable = true;
-        openFirewall = true;
-        group = "media";
-      };
+    radarr = {
+      enable = true;
+      openFirewall = true;
+      group = "media";
+    };
   };
 
   security.acme = {
@@ -76,7 +76,7 @@
   };
 
   users.groups = {
-    media = {};
+    media = { };
   };
 
   users.users.johan = {
@@ -86,8 +86,8 @@
       kakoune
     ];
     openssh.authorizedKeys.keys = [
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINHog6/0hxWQiHsnbomKBn1nLK7smKYfHGk0YcfOVq4n johan@hansan-laptop"
-        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGxlasMoSJCYmVmT3T8HLmWYqoUX+0NO5gM5xaiRYto7 johan@hansan-desktop"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINHog6/0hxWQiHsnbomKBn1nLK7smKYfHGk0YcfOVq4n johan@hansan-laptop"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGxlasMoSJCYmVmT3T8HLmWYqoUX+0NO5gM5xaiRYto7 johan@hansan-desktop"
     ];
   };
 

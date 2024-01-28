@@ -2,11 +2,11 @@
 
 {
   imports = [
-      # Home Manager's channel must be added in order for this import to work.
-      <home-manager/nixos>
-      ./configuration-common.nix
-      ./laptop/syncthing.nix
-      ./laptop/desktop-environment.nix
+    # Home Manager's channel must be added in order for this import to work.
+    <home-manager/nixos>
+    ./configuration-common.nix
+    ./laptop/syncthing.nix
+    ./laptop/desktop-environment.nix
   ];
   # Make X11 start on intel integrated graphics
   boot.kernelParams = [ "i915.force_probe=46a6" ];
@@ -55,7 +55,7 @@
   # Enable sound with pipewire.
   #sound.enable = true;
   hardware.pulseaudio.enable = false;
-  security.rtkit.enable  = true;
+  security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
     alsa.enable = true;

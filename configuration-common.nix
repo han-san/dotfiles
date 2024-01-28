@@ -6,7 +6,8 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./tailscale-extension.nix
     ];
@@ -17,34 +18,34 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
   i18n.extraLocaleSettings = {
-  #   # Versions and status of categories.
+    #   # Versions and status of categories.
     LC_IDENTIFICATION = "sv_SE.UTF-8";
-  #   # Character classification, case conversion and code transformation.
-  #   LC_CTYPE = "sv_SE.UTF-8";
-  #   # Collation order.
-  #   LC_COLLATE = "sv_SE.UTF-8";
-  #   # Date and time formats.
+    #   # Character classification, case conversion and code transformation.
+    #   LC_CTYPE = "sv_SE.UTF-8";
+    #   # Collation order.
+    #   LC_COLLATE = "sv_SE.UTF-8";
+    #   # Date and time formats.
     LC_TIME = "sv_SE.UTF-8";
-  #   # Numeric, non-monetary formatting.
+    #   # Numeric, non-monetary formatting.
     LC_NUMERIC = "sv_SE.UTF-8";
-  #   # Monetary formatting.
+    #   # Monetary formatting.
     LC_MONETARY = "sv_SE.UTF-8";
-  #   # Formats of informative and diagnostic messages and interactive responses.
-  #   LC_MESSAGES = "sv_SE.UTF-8";
-  #   # Character transliteration.
-  #   LC_XLITERATE = "sv_SE.UTF-8";
-  #   # Format of writing personal names.
+    #   # Formats of informative and diagnostic messages and interactive responses.
+    #   LC_MESSAGES = "sv_SE.UTF-8";
+    #   # Character transliteration.
+    #   LC_XLITERATE = "sv_SE.UTF-8";
+    #   # Format of writing personal names.
     LC_NAME = "sv_SE.UTF-8";
-  #   # Format of postal addresses.
+    #   # Format of postal addresses.
     LC_ADDRESS = "sv_SE.UTF-8";
-  #   # Format for telephone numbers, and other telephone information.
+    #   # Format for telephone numbers, and other telephone information.
     LC_TELEPHONE = "sv_SE.UTF-8";
     # Paper format.
     LC_PAPER = "sv_SE.UTF-8";
-  #   # Information on measurement system.
+    #   # Information on measurement system.
     LC_MEASUREMENT = "sv_SE.UTF-8";
-  #   # Format for idenitfying keyboards.
-  #   LC_KEYBOARD = "sv_SE.UTF-8";
+    #   # Format for idenitfying keyboards.
+    #   LC_KEYBOARD = "sv_SE.UTF-8";
   };
 
   services = {

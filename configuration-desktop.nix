@@ -6,22 +6,22 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
+      # Include the results of the hardware scan.
       <home-manager/nixos>
       ./configuration-common.nix
       ./desktop/syncthing.nix
       ./desktop/desktop-environment.nix
     ];
-   
-  
+
   hardware.opengl = {
     enable = true;
     driSupport = true;
     driSupport32Bit = true;
   };
-  
+
   services.xserver.videoDrivers = [ "nvidia" ];
-  
+
   hardware.nvidia = {
     modesetting.enable = true;
     open = false;

@@ -1,4 +1,3 @@
-
 { pkgs, config, osConfig, ... }:
 
 {
@@ -17,7 +16,7 @@
     };
 
     packages = with pkgs; [
-      (pkgs.callPackage ./cppfront.nix {})
+      (pkgs.callPackage ./cppfront.nix { })
       cmake-language-server
     ];
   };
