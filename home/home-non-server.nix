@@ -342,7 +342,12 @@
     };
   };
 
-  programs.swaylock.enable = true;
+  programs.swaylock = {
+    enable = true;
+    settings = {
+      image = "${config.xdg.userDirs.pictures}/wallpapers/hackerman.jpg";
+    };
+  };
 
   services.swayidle = {
     enable = true;
