@@ -320,8 +320,7 @@
           "${mod}+h" = "splith";
 
           "${mod}+t" = "layout toggle split";
-          # FIXME: fix exit keybind
-          # FIXME: the mod+space to focus mode_toggle and mod+shift+space for floating toggle screws up the win+space to switch keyboard layouts.
+          "${mod}+Shift+Control+Escape" = "exec swaymsg exit";
         };
       fonts = {
         names = [ "Iosevka" ];
