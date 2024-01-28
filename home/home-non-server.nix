@@ -37,7 +37,6 @@
       jellyfin-mpv-shim
       keepassxc
       qbittorrent
-      teams
       zoom-us
       gnomeExtensions.caffeine
 
