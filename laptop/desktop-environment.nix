@@ -7,7 +7,7 @@
       # Configure keymap in X11
       layout = "us";
       xkbVariant = "colemak_dh_iso";
-      xkbOptions = "grp:win_space_toggle";
+      xkbOptions = "grp:win_space_toggle,caps:capslock";
 
       displayManager.gdm.enable = true;
       desktopManager.gnome.enable = true;
