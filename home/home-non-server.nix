@@ -49,6 +49,7 @@
       # Other
       hyperfine
       tofi
+      bluetuith
 
       # Development
       flutter
