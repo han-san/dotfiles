@@ -34,5 +34,14 @@
         name = "cleanbootgenerations";
         text = (builtins.readFile "${SCRIPTS_DIR}/cleanbootgenerations.sh");
       })
+      (writeShellApplication {
+        name = "dithercbz";
+        runtimeInputs = [ imagemagick parallel p7zip ];
+        text = (builtins.readFile "${SCRIPTS_DIR}/dithercbz.bash");
+      })
+      (writeShellApplication {
+        name = "nixrun";
+        text = (builtins.readFile "${SCRIPTS_DIR}/nixrun.bash");
+      })
     ];
 }
