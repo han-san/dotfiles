@@ -5,6 +5,8 @@
   noremap l u
   noremap j e
   noremap u i
+  noremap m h
+  noremap h m
 
   noremap N J
   noremap E K
@@ -13,6 +15,8 @@
   noremap L U
   noremap J E
   noremap U I
+  noremap M H
+  noremap H M
 
   nnoremap Y y$
 
