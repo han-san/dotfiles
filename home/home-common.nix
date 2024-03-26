@@ -86,8 +86,21 @@
         autocrlf = "input";
         editor = "kak";
       };
+      merge.conflictStyle = "zdiff3";
+      help.autoCorrect = "prompt";
+      rebase.autoSquash = true;
+      pull.ff = "only";
       commit.verbose = true;
       init.defaultBranch = "main";
+      branch.sort = "-committerdate";
+      diff = {
+        algorithm = "histogram";
+        colorMoved = "default";
+        colorMovedWS = "allow-indentation-change";
+        context = 10;
+      };
+      gpg.format = "ssh";
+      log.date = "iso";
     };
     aliases = {
       a = "commit --amend";
