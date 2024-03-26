@@ -3,6 +3,15 @@
 {
   xdg.configFile."kak-lsp/kak-lsp.toml".source = ./kak-lsp.toml;
 
+  home.packages = with pkgs; [
+    # Required for kakoune-gdb.
+    gdb
+    perl
+    socat
+    rr # Optional
+  ];
+
+
   programs.kakoune = {
     enable = true;
     config = {
@@ -122,6 +131,18 @@
             };
             meta.homepage = "https://github.com/raiguard/kak-harpoon/";
           };
+        kakoune-gdb =
+          pkgs.kakouneUtils.buildKakounePluginFrom2Nix {
+            pname = "kakoune-gdb";
+            version = "2024-01-08";
+            src = pkgs.fetchFromGitHub {
+              owner = "occivink";
+              repo = "kakoune-gdb";
+              rev = "e4264aa1ba133f6e7188a6e55c2b47ffb40180b6";
+              sha256 = "0w4wgi0bn72f8gq5pyjnsc4mi8pix8yid7pd3mx4lr3fz57mcv1h";
+            };
+            meta.homepage = "https://github.com/occivink/kakoune-gdb/";
+          };
       in
       [
         kak-lsp
@@ -129,6 +150,7 @@
         kakoune-extra-filetypes # Adds highlighting to more filetypes.
         kakoune-mirror
         kak-harpoon
+        kakoune-gdb
         csharp-kak
       ];
   };

@@ -112,6 +112,19 @@ in
   (makeKeyMap "object" "d" "<a-;>lsp-diagnostic-object --include-warnings<ret>" "LSP warnings and errors")
   (makeKeyMap "object" "D" "<a-;>lsp-diagnostic-object<ret>" "LSP errors")
 
+  # GDB binds
+  (makeKeyMap "user" "d" ":enter-user-mode gdb<ret>" "GDB mode")
+  (makeKeyMap "gdb" "d" ":enter-user-mode -lock gdb<ret>" "lock GDB mode")
+  (makeKeyMap "gdb" "c" ":gdb-session-new " "start a new gdb session")
+  (makeKeyMap "gdb" "r" ":rr-session-new<ret>" "start a new rr session")
+  (makeKeyMap "gdb" "n" ":gdb-next<ret>" "step over")
+  (makeKeyMap "gdb" "e" ":gdb-finish<ret>" "step out")
+  (makeKeyMap "gdb" "i" ":gdb-step<ret>" "step in")
+  (makeKeyMap "gdb" "j" ":gdb-jump-to-location<ret>" "jump to current program counter")
+  (makeKeyMap "gdb" "b" ":gdb-toggle-breakpoint<ret>" "toggle breakpoint at cursor location")
+  (makeKeyMap "gdb" "p" ":gdb-print<ret>" "print value of expression in selection")
+  (makeKeyMap "gdb" "s" ":gdb-backtrace<ret>" "show backtrace/callstack")
+
   # System clipboard binds
   (makeKeyMap "user" "y" "<a-|> wl-copy<ret>" "copy selection to system clipboard")
   (makeKeyMap "user" "p" "! wl-paste -n<ret>" "paste from system clipboard")
