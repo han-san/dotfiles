@@ -19,6 +19,7 @@
     sessionVariables =
       with config.xdg;
       {
+        NIXOS_OZONE_WL = 1;
         CMAKE_EXPORT_COMPILE_COMMANDS = 1;
         EDITOR = "kak";
         CONAN_USER_HOME = configHome;
