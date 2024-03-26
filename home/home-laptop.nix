@@ -17,4 +17,10 @@
       TODO_FILE = "${osConfig.services.syncthing.dataDir}/Todos/TODO.org";
     };
   };
+
+  programs.direnv = {
+    enable = true;
+    enableBashIntegration = true;
+    nix-direnv.enable = true;
+  };
 }
