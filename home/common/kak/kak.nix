@@ -153,6 +153,7 @@
         kakoune-extra-filetypes # Adds highlighting to more filetypes.
         kakoune-mirror
         kak-harpoon
+        auto-pairs-kak
         kakoune-gdb
         csharp-kak
       ];
