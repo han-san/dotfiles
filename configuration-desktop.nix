@@ -56,8 +56,11 @@
 
   # Configure keymap in X11
   services.xserver = {
-    layout = "us";
-    xkbVariant = "colemak";
+    xkb = {
+      layout = "us";
+      variant = "colemak";
+      options = "grp:win_space_toggle,caps:capslock";
+    };
   };
 
   fonts.packages = with pkgs; [
