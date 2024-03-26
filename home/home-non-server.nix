@@ -70,7 +70,17 @@
       nodePackages.typescript-language-server
       nodePackages.prettier
       ## Python
-      python3
+      (python3.withPackages (ps:
+        with ps;
+        [
+          python-lsp-server
+          pylsp-mypy
+          pyls-isort
+          python-lsp-black
+          pyls-memestra
+          pylsp-rope
+          python-lsp-ruff
+        ] ++ python-lsp-server.optional-dependencies.all))
       #python-lsp-server #lsp
       ## Rust
       cargo
@@ -88,7 +98,7 @@
       cppcheck
       gdb
       gnumake
-      lldb
+      #lldb
       ## Dotnet
       fsharp
       mono
@@ -350,6 +360,7 @@
     enable = true;
     settings = {
       image = "${config.xdg.userDirs.pictures}/wallpapers/hackerman.jpg";
+      scaling = "fit";
     };
   };
 
@@ -394,6 +405,18 @@
       };
       modifier = "Mod4";
       menu = "${pkgs.tofi}/bin/tofi-drun --drun-launch=true";
+
+      # Inhibit swayidle (requires work, should be togglable in some way).
+      # There is some other swaybar or something that allows for toggling it, I think.
+      # window.commands = [
+      #   {
+      #     command = "inhibit_idle visible";
+      #     criteria = {
+      #       app_id = ".*";
+      #     };
+      #   }
+      # ];
+
       # Changing up, down, left, right means some keybinds are lost. They need to be added again.
       # Switching windows to some workspaces doesn't work with glove80 (it probably interprets it as mod4+$ instead of mod4+shift+7
       keybindings =

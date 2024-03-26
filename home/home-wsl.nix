@@ -12,6 +12,7 @@
       PROJECTS_DIR = "/mnt/c/Users/johan/Projects";
       SNIPPETS_DIR = "${PROJECTS_DIR}/snippets";
       SCRIPTS_DIR = "${PROJECTS_DIR}/scripts";
+      DITHERCBZ_COLOR_MAP_LOCATION = "/mnt/d/Books/kindle_colors.gif";
       TODO_FILE = "${osConfig.services.syncthing.dataDir}/Todos/TODO.org";
     };
 

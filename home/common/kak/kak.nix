@@ -34,6 +34,20 @@
       keyMappings = import ./kakkeymappings.nix;
       hooks = [
         {
+          name = "BufCreate";
+          option = ".*\.typ";
+          commands = "set-option buffer filetype typst";
+        }
+        {
+          name = "WinSetOption";
+          option = "filetype=typst";
+          commands = ''
+            hook buffer BufWritePost .* %{
+              nop %sh{ ${pkgs.typst}/bin/typst compile "$kak_buffile" }
+            }
+          '';
+        }
+        {
           name = "WinSetOption";
           option = "filetype=(haskell|c|cpp|csharp|rust|python|javascript|typescript|latex|typst|dart|nix|go|cmake)";
           commands = ''
@@ -43,6 +57,13 @@
             lsp-inlay-code-lenses-enable window
           '';
         }
+        # {
+        #   name = "WinSetOption";
+        #   option = "filetype=(typescript|javascript)";
+        #   commands = ''
+        #     hook window BufWritePre .* %{ nop sh{ echo "from $kak_buffile" >out.log; prettier -w $kak_buffile >>out.log 2>err.log} }
+        #   '';
+        # }
         {
           name = "WinSetOption";
           option = "filetype=rust";

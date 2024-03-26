@@ -136,6 +136,8 @@ in
   (makeKeyMap "user" "s" ":enter-user-mode mirror<ret>" "mirror mode")
   (makeKeyMap "user" "S" ":enter-user-mode -lock mirror<ret>" "mirror mode (lock)")
 
+  # TODO: Add keybind for visually wrapping text (addhl buffer/ wrap -word -indent -width 100)
+
   # harpoon binds
   (makeKeyMap "user" "h" ":enter-user-mode harpoon<ret>" "harpoon mode")
   (makeKeyMap "harpoon" "a" ":harpoon-add<ret>" "add buffer to harpoon list")

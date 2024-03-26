@@ -1,14 +1,18 @@
-{ ... }:
+{ config, ... }:
 let
   vimrc = builtins.readFile ./init.vim;
-in {
-  home.file.".ideavimrc".text = vimrc;
+in
+{
+  # Using config.xdg.configHome errors.
+  home.file.".config/ideavim/ideavimrc".text = vimrc;
+
+  imports = [
+    ./colorscheme.nix
+    ./telescope.nix
+  ];
 
   programs.neovim = {
     enable = true;
-    coc = {
-      enable = true;
-    };
-    extraConfig = vimrc;
+    extraLuaConfig = builtins.readFile ./init.lua;
   };
 }
