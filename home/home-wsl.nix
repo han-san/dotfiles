@@ -18,6 +18,8 @@
     packages = with pkgs; [
       (pkgs.callPackage ./cppfront.nix { })
       cmake-language-server
+      typst
+      typst-lsp
     ];
   };
 }

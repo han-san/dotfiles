@@ -46,6 +46,8 @@
       qtcreator
       (pkgs.callPackage ./cppfront.nix { })
 
+      typst
+      typst-lsp
       libreoffice
       # Other
       hyperfine
@@ -249,7 +251,7 @@
   programs.texlive = {
     enable = true;
     extraPackages = tpkgs: {
-      inherit (tpkgs) scheme-basic;
+      inherit (tpkgs) scheme-small;
     };
   };
 

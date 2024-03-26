@@ -62,6 +62,11 @@ verbosity = 2
 # set to 0 to disable
 timeout = 1800 # seconds = 30 minutes
 
+[language.typst]
+filetypes = ["typst"]
+roots = [".git"]
+command = "typst-lsp"
+
 [language.bash]
 filetypes = ["sh"]
 roots = [".git", ".hg"]
@@ -73,6 +78,12 @@ filetypes = ["c", "cpp"]
 roots = ["compile_commands.json", ".clangd"]
 command = "clangd"
 args = ["--clang-tidy"]
+
+[language.csharp]
+filetypes = ["csharp"]
+roots = [".git"]
+command = "OmniSharp"
+args = ["-lsp"]
 
 [language.cmake]
 filetypes = ["cmake"]
@@ -226,7 +237,7 @@ intelephense.storagePath = "/tmp/intelephense"
 [language.python]
 filetypes = ["python"]
 roots = [".git"]
-command = "python-language-server"
+command = "pylsp"
 
 [language.reason]
 filetypes = ["reason"]

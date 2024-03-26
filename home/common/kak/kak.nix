@@ -23,7 +23,7 @@
       hooks = [
         {
           name = "WinSetOption";
-          option = "filetype=(haskell|c|cpp|rust|python|javascript|typescript|latex|dart|nix|go|cmake)";
+          option = "filetype=(haskell|c|cpp|csharp|rust|python|javascript|typescript|latex|typst|dart|nix|go|cmake)";
           commands = ''
             lsp-enable-window
             lsp-inlay-diagnostics-enable window
@@ -86,6 +86,18 @@
     plugins =
       with pkgs.kakounePlugins;
       let
+        csharp-kak =
+          pkgs.kakouneUtils.buildKakounePluginFrom2Nix {
+            pname = "csharp.kak";
+            version = "2020-08-08";
+            src = pkgs.fetchFromGitHub {
+              owner = "mspielberg";
+              repo = "csharp.kak";
+              rev = "0cec0cea23b4f77a6dbcada4edaa4f6517228fcd";
+              sha256 = "1yryjwwhm0rfrj24ph5rjsljapma346g7m7gjgqjdd28iwv94flf";
+            };
+            meta.homepage = "https://github.com/mspielberg/csharp.kak";
+          };
         kakoune-mirror =
           pkgs.kakouneUtils.buildKakounePluginFrom2Nix {
             pname = "kakoune-mirror";
@@ -117,6 +129,7 @@
         kakoune-extra-filetypes # Adds highlighting to more filetypes.
         kakoune-mirror
         kak-harpoon
+        csharp-kak
       ];
   };
 }
