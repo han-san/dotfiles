@@ -402,14 +402,15 @@
           light = "${pkgs.light}/bin/light";
           pamixer = "${pkgs.pamixer}/bin/pamixer";
           notifier = "${pkgs.dunst}/bin/dunstify";
+          mpv = "${pkgs.mpv}/bin/mpv";
         in
         lib.mkOptionDefault {
           # Doesn't work.
           "XF86MonBrightnessDown" = "exec ${notifier} brightdown"; #"exec ${light} -U 10"; # Notify or have in status bar
           "XF86MonBrightnessUp" = "exec ${notifier} brightup"; #"exec ${light} -A 10";
 
-          "XF86AudioRaiseVolume" = "exec ${pamixer} -i 5 2>&1 >> /tmp/volume.log"; # Notify or have in status bar
-          "XF86AudioLowerVolume" = "exec ${pamixer} -d 5 2>&1 >> /tmp/volume.log";
+          "XF86AudioRaiseVolume" = "exec mpv ${config.home.homeDirectory}/soundeffects/bloop.mp3; exec ${pamixer} -i 5 2>&1 >> /tmp/volume.log"; # Notify or have in status bar
+          "XF86AudioLowerVolume" = "exec mpv ${config.home.homeDirectory}/soundeffects/bloop.mp3; exec ${pamixer} -d 5 2>&1 >> /tmp/volume.log";
           "XF86AudioMute" = "exec ${pamixer} -t 2>&1 >> /tmp/volume.log";
 
           "${mod}+m" = "focus left";
