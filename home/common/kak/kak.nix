@@ -9,6 +9,9 @@
     perl
     socat
     rr # Optional
+
+    # Required for kak-fzf
+    fzf
   ];
 
 
