@@ -2,10 +2,10 @@
 
 {
   imports = [
-    ./common/kak/kak.nix
-    ./common/bash.nix
-    ./common/neovim/neovim.nix
-    ./common/scripts.nix
+    ./kak/kak.nix
+    ./bash.nix
+    ./neovim/neovim.nix
+    ./scripts.nix
   ];
 
   # Let Home Manager install and manage itself.
@@ -38,7 +38,7 @@
       universal-ctags
       shellcheck
       shfmt
-      rnix-lsp
+      #rnix-lsp FIXME: Unmaintained.
       gopls # go lsp
     ];
   };
@@ -57,10 +57,7 @@
 
   programs.bat.enable = true;
 
-  programs.eza = {
-    enable = true;
-    enableAliases = true;
-  };
+  programs.eza.enable = true;
 
   programs.tmux = {
     enable = true;

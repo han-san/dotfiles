@@ -2,8 +2,8 @@
 
 {
   imports = [
-    ./home-common.nix
-    ./server/bash.nix
+    ../../common/home/home.nix
+    ./bash.nix
   ];
 
   home = {

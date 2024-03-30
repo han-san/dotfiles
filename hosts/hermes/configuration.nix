@@ -1,12 +1,13 @@
-{ config, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 
 {
   imports = [
-    # Home Manager's channel must be added in order for this import to work.
-    <home-manager/nixos>
-    ./configuration-common.nix
-    ./laptop/syncthing.nix
-    ./laptop/desktop-environment.nix
+    inputs.home-manager.nixosModules.home-manager
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ../common/configuration.nix
+    ./syncthing.nix
+    ./desktop-environment.nix
   ];
   # Make X11 start on intel integrated graphics
   boot.kernelParams = [ "i915.force_probe=46a6" ];
@@ -86,12 +87,6 @@
     ];
   };
 
-  nixpkgs.config.packageOverrides = pkgs: {
-    nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
-      inherit pkgs;
-    };
-  };
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -164,9 +159,10 @@
   };
 
   home-manager = {
+    extraSpecialArgs = { inherit inputs; };
     useUserPackages = true;
     useGlobalPkgs = true;
-    users.johan = import ./home/home-laptop.nix;
+    users.johan = import ./home/home.nix;
   };
 
 }

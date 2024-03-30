@@ -2,16 +2,16 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running `nixos-help`).
 
-{ config, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 
 {
   imports =
     [
-      <home-manager/nixos>
-      ./server/syncthing.nix
-      ./server/nginx.nix
-      #      ./server/tinytinyrss.nix
-      ./configuration-common.nix
+      inputs.home-manager.nixosModules.home-manager
+      ./syncthing.nix
+      ./nginx.nix
+      #      ./tinytinyrss.nix
+      ../common/configuration.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -102,9 +102,10 @@
   ];
 
   home-manager = {
+    extraSpecialArgs = { inherit inputs; };
     useUserPackages = true;
     useGlobalPkgs = true;
-    users.johan = import ./home/home-server.nix;
+    users.johan = import ./home/home.nix;
   };
 }
 

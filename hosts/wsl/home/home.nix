@@ -2,8 +2,8 @@
 
 {
   imports = [
-    ./home-common.nix
-    ./desktop/bash.nix
+    ../../common/home/home.nix
+    ../../gaia/home/bash.nix
   ];
 
   home = {
@@ -17,7 +17,7 @@
     };
 
     packages = with pkgs; [
-      (pkgs.callPackage ./cppfront.nix { })
+      (pkgs.callPackage ../../common/cppfront.nix { })
       cmake-language-server
       typst
       typst-lsp

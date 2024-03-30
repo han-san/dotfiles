@@ -5,7 +5,7 @@
     # Home Manager's channel must be added in order for this import to work.
     <home-manager/nixos>
     <nixos-wsl/modules>
-    ./configuration-common.nix
+    ../common/configuration.nix
   ];
 
   wsl.enable = true;
@@ -71,7 +71,7 @@
   home-manager = {
     useUserPackages = true;
     useGlobalPkgs = true;
-    users.johan = import ./home/home-wsl.nix;
+    users.johan = import ./home/home.nix;
   };
 
 }

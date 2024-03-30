@@ -2,16 +2,15 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 
 {
   imports =
     [
-      # Include the results of the hardware scan.
-      <home-manager/nixos>
-      ./configuration-common.nix
-      ./desktop/syncthing.nix
-      ./desktop/desktop-environment.nix
+      inputs.home-manager.nixosModules.home-manager
+      ../common/configuration.nix
+      ./syncthing.nix
+      ./desktop-environment.nix
     ];
 
   hardware.opengl = {
@@ -93,12 +92,6 @@
     libraries = [ "/run/media/johan/Intern2/Books/" ];
   };
 
-  nixpkgs.config.packageOverrides = pkgs: {
-    nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
-      inherit pkgs;
-    };
-  };
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -157,9 +150,10 @@
   };
 
   home-manager = {
+    extraSpecialArgs = { inherit inputs; };
     useUserPackages = true;
     useGlobalPkgs = true;
-    users.johan = import ./home/home-desktop.nix;
+    users.johan = import ./home/home.nix;
   };
 
   # This value determines the NixOS release from which the default

@@ -1,9 +1,12 @@
-{ pkgs, ... }:
+{ config, inputs, pkgs, ... }:
 {
+  imports = [
+    inputs.nur.hmModules.nur
+  ];
   programs.firefox = {
     enable = true;
     profiles.default = {
-      extensions = with pkgs.nur.repos.rycee.firefox-addons; [
+      extensions = with config.nur.repos.rycee.firefox-addons; [
         ublock-origin
         decentraleyes
         facebook-container

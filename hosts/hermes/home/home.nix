@@ -2,9 +2,9 @@
 
 {
   imports = [
-    ./home-common.nix
-    ./home-non-server.nix
-    ./laptop/bash.nix
+    ../../common/home/home.nix
+    ../../common/home/home-non-server.nix
+    ./bash.nix
   ];
 
   home = {

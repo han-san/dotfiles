@@ -24,14 +24,13 @@
 
   environment.gnome.excludePackages = (with pkgs; [
     gnome-tour
-  ]) ++ (with pkgs.gnome; [
-    epiphany # browser
-    geary # mail client
-    gnome-music
-    totem # video player
-    yelp # help viewer
-    gnome-contacts
-    gnome-maps
+    gnome.epiphany # browser
+    gnome.geary # mail client
+    gnome.gnome-music
+    gnome.totem # video player
+    gnome.yelp # help viewer
+    gnome.gnome-contacts
+    gnome.gnome-maps
   ]);
 
   environment.systemPackages = with pkgs; [

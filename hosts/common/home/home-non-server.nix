@@ -2,8 +2,8 @@
 
 {
   imports = [
-    ./common/firefox.nix
-    ./common/mpv.nix
+    ./firefox.nix
+    ./mpv.nix
   ];
 
   home = {
@@ -45,7 +45,7 @@
       jetbrains.rider
       jetbrains.clion
       qtcreator
-      (pkgs.callPackage ./cppfront.nix { })
+      (pkgs.callPackage ../cppfront.nix { })
 
       typst
       typst-lsp
@@ -54,6 +54,7 @@
       hyperfine
       tofi
       bluetuith
+      obsidian
 
       # Development
       flutter
@@ -126,12 +127,6 @@
 
   xdg.configFile."nixpkgs/config.nix".text = ''
     {
-      packageOverrides = pkgs: {
-        nur = import (builtins.fetchTarball "https://github.com/nix-community/NUR/archive/master.tar.gz") {
-          inherit pkgs;
-        };
-      };
-
       android_sdk.accept_license = true;
     }
   '';
