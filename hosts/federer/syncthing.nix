@@ -1,7 +1,7 @@
 { config, ... }:
 
 {
-  environment.etc.foo.text = builtins.readFile ./syncthingpass.txt;
+  sops.secrets.syncthing-pass.sopsFile = ./secrets.yaml;
   services.syncthing = {
     enable = true;
     user = "johan";
@@ -11,8 +11,7 @@
     settings = {
       gui = {
         user = "johan";
-        # FIXME: Temporary solution
-        password = builtins.readFile ./syncthingpass.txt;
+        password = builtins.readFile config.sops.secrets.syncthing-pass.path;
       };
 
       devices = with config.services.tailscale; {

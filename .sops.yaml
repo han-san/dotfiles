@@ -1,0 +1,17 @@
+keys:
+  - &johan-hermes age1mkc7f3dxnyz7c2xun9jcpsgp3vtgzkrq6w834hw0knrcus57hyzqr9p845
+  - &hermes age17x27edx6ufve3769mmgjkk5sw79mskc4znn99hg0ul28993xk3vsxntrgt
+  - &johan-federer age1rzuttsul6yqgkpzak5rfwchugje7yq62qg2wlxrl64ayjktucyhqssgahr
+  - &federer age18wxecejukshs86gd47a54x3a3wqdz3eavmlyljyw4lmr9guyy90qstf2nv
+creation_rules:
+  - path_regex: hosts/hermes/secrets.ya?ml$
+    key_groups:
+      - age:
+          - *johan-hermes
+          - *hermes
+  - path_regex: hosts/federer/secrets.ya?ml$
+    key_groups:
+      - age:
+          - *johan-federer
+          - *johan-hermes
+          - *federer

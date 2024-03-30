@@ -14,6 +14,8 @@
     };
 
     nur.url = "github:nix-community/NUR";
+
+    sops-nix.url = "github:Mic92/sops-nix";
   };
 
   outputs = { self, nixpkgs, ... } @ inputs: {
@@ -22,6 +24,7 @@
         specialArgs = { inherit inputs; };
         system = "x86_64-linux";
         modules = [
+          inputs.sops-nix.nixosModules.sops
           inputs.nur.nixosModules.nur
           ./hosts/hermes/configuration.nix
         ];
@@ -37,6 +40,7 @@
         specialArgs = { inherit inputs; };
         system = "x86_64-linux";
         modules = [
+          inputs.sops-nix.nixosModules.sops
           ./hosts/federer/configuration.nix
         ];
       };

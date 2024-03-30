@@ -1,14 +1,16 @@
 { config, ... }:
 
 {
+  sops.secrets.federer-cert.sopsFile = ./secrets.yaml;
+  sops.secrets.federer-key.sopsFile = ./secrets.yaml;
   services.nginx = with config.services.tailscale; {
     enable = true;
     recommendedGzipSettings = true;
 
     virtualHosts."federer.${tailnetName}" =
       {
-        sslCertificate = ./federer.siren-tuna.ts.net.crt;
-        sslCertificateKey = ./federer.siren-tuna.ts.net.key;
+        sslCertificate = config.sops.secrets.federer-cert.path;
+        sslCertificateKey = config.sops.secrets.federer-key.path;
         root = "/var/www";
         locations = {
           "/jellyfin" = {

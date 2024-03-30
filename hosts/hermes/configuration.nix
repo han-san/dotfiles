@@ -12,8 +12,13 @@
   # Make X11 start on intel integrated graphics
   boot.kernelParams = [ "i915.force_probe=46a6" ];
 
+  # sops.secrets.eduroam-cert = {
+  #   sopsFile = ./secrets.yaml;
+  # };
+
+  # For some reason this doesn't work.
   # Eduroam certificate
-  security.pki.certificateFiles = [ ./eduroam.pem ];
+  # security.pki.certificateFiles = [ config.sops.secrets.eduroam-cert.path ];
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
