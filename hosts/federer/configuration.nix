@@ -8,6 +8,7 @@
   imports =
     [
       inputs.home-manager.nixosModules.home-manager
+      ./hardware-configuration.nix
       ./syncthing.nix
       ./nginx.nix
       #      ./tinytinyrss.nix
