@@ -55,6 +55,7 @@
       tofi
       bluetuith
       obsidian
+      gimp
 
       # Development
       tokei
