@@ -169,7 +169,7 @@
           };
       in
       [
-        kak-lsp
+        kakoune-lsp
         kak-fzf
         kakoune-extra-filetypes # Adds highlighting to more filetypes.
         kakoune-mirror

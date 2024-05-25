@@ -1,4 +1,4 @@
-{ pkgs, config, osConfig, ... }:
+{ inputs, pkgs, config, osConfig, ... }:
 
 {
   imports = [
@@ -33,6 +33,13 @@
 
     packages = with pkgs; [
       choose
+      # (fetchFromGitHub {
+      #   owner = "han-san";
+      #   repo = "nixrun";
+      #   rev = "e040bb032264c056d58c30ef60cc82756273c3b7";
+      #   sha256 = "03nmgf5l1dbn5fmd5grvhygbwlalvsav03jspqcf3kf45cd0ph46";
+      # })
+      inputs.nixrun
       fd
       ripgrep
       universal-ctags

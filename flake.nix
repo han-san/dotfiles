@@ -16,6 +16,10 @@
     nur.url = "github:nix-community/NUR";
 
     sops-nix.url = "github:Mic92/sops-nix";
+
+    # FIXME: The LICENSE file conflicts. Maybe can't use writeShellApllication.
+    nixrun.url = "github:han-san/nixrun";
+    dithercbz.url = "github:han-san/dithercbz";
   };
 
   outputs = { self, nixpkgs, ... } @ inputs: {
