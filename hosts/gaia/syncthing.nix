@@ -37,6 +37,11 @@
         label = "Projects";
         devices = [ "Hermes" "Federer" ];
       };
+      "/home/johan/Documents/ObsidianVault" = {
+        id = "yrqqc-4hucm";
+        label = "ObsidianVault";
+        devices = [ "Phone" "Hermes" "Federer" ];
+      };
     };
   };
 }

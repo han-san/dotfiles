@@ -42,6 +42,11 @@
           label = "Projects";
           devices = [ "Gaia" "Federer" ];
         };
+        "/home/johan/Documents/ObsidianVault" = {
+          id = "yrqqc-4hucm";
+          label = "ObsidianVault";
+          devices = [ "Phone" "Federer" "Gaia" ];
+        };
       };
     };
   };

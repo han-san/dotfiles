@@ -52,6 +52,11 @@
           label = "Projects";
           devices = [ "Hermes" "Gaia" ];
         };
+        "${dataDir}/ObsidianVault" = {
+          id = "yrqqc-4hucm";
+          label = "ObsidianVault";
+          devices = [ "Hermes" "Phone" "Gaia" ];
+        };
       };
     };
   };
