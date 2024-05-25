@@ -57,7 +57,6 @@
       obsidian
 
       # Development
-      flutter
       tokei
       ## Haskell
       cabal-install
