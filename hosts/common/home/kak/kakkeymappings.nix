@@ -26,7 +26,6 @@ in
 
   (makeKeyMap "user" "w" ":w<ret>" "save buffer")
   (makeKeyMap "user" "b" ":b " "switch buffer")
-  (makeKeyMap "user" "m" ":make<ret>" "make")
   (makeKeyMap "user" "c" ":comment-line<ret>" "comment selected lines")
 
   # Git binds
