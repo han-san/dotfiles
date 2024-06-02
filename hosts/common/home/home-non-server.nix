@@ -399,6 +399,8 @@
       modifier = "Mod4";
       menu = "${pkgs.tofi}/bin/tofi-drun --drun-launch=true";
 
+      defaultWorkspace = "workspace number 1";
+
       # Inhibit swayidle (requires work, should be togglable in some way).
       # There is some other swaybar or something that allows for toggling it, I think.
       # window.commands = [
