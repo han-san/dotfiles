@@ -381,7 +381,6 @@
     config = {
       input = {
         "*" = {
-          # FIXME: Is there a way to remove caps backspace? It screws up caps lock on glove80.
           xkb_variant = "colemak_dh_iso,";
           xkb_layout = "us,se";
           xkb_options = "grp:alt_caps_toggle,caps:capslock"; # caps:swapescape screws up glove80
@@ -394,7 +393,6 @@
           accel_profile = "flat";
         };
       };
-      # FIXME: Things to do: get sway in display manager. Apparently the regular programs.sway = enable does it, but I don't know the status of home-manager's
       assigns = {
         "2" = [{ app_id = "^firefox$"; }];
       };
