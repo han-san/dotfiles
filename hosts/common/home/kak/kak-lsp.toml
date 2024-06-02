@@ -208,11 +208,10 @@ filetypes = ["nim"]
 roots = ["*.nimble", ".git"]
 command = "nimlsp"
 
-# FIXME: rnix is unmaintained, switch to something else.
-# [language.nix]
-# filetypes = ["nix"]
-# roots = ["flake.nix", "shell.nix", ".git"]
-# command = "rnix-lsp"
+[language.nix]
+filetypes = ["nix"]
+roots = ["flake.nix", "shell.nix", ".git"]
+command = "nil"
 
 [language.ocaml]
 filetypes = ["ocaml"]

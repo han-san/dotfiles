@@ -45,7 +45,7 @@
       universal-ctags
       shellcheck
       shfmt
-      #rnix-lsp FIXME: Unmaintained.
+      nil # nix lsp
       gopls # go lsp
     ];
   };
