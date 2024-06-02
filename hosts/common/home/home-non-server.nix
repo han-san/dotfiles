@@ -421,11 +421,11 @@
           pamixer = "${pkgs.pamixer}/bin/pamixer";
           notifier = "${pkgs.dunst}/bin/dunstify";
           mpv = "${pkgs.mpv}/bin/mpv";
+          python = "${pkgs.python3}/bin/python3";
         in
         lib.mkOptionDefault {
-          # Doesn't work.
-          "XF86MonBrightnessDown" = "exec ${notifier} brightdown"; #"exec ${light} -U 10"; # Notify or have in status bar
-          "XF86MonBrightnessUp" = "exec ${notifier} brightup"; #"exec ${light} -A 10";
+          "XF86MonBrightnessDown" = "exec ${light} -S $(${python} -c \"print(max(1, $(${light}) - 10))\") && ${notifier} --hints=string:x-dunst-stack-tag:light --urgency=low Brightness $(${light})";
+          "XF86MonBrightnessUp" = "exec ${light} -A 10 && ${notifier} --hints=string:x-dunst-stack-tag:light --urgency=low Brightness $(${light})";
 
           "XF86AudioRaiseVolume" = "exec mpv ${config.home.homeDirectory}/soundeffects/bloop.mp3; exec ${pamixer} -i 5 2>&1 >> /tmp/volume.log"; # Notify or have in status bar
           "XF86AudioLowerVolume" = "exec mpv ${config.home.homeDirectory}/soundeffects/bloop.mp3; exec ${pamixer} -d 5 2>&1 >> /tmp/volume.log";
