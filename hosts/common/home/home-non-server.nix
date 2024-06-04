@@ -57,6 +57,19 @@
       obsidian
       gimp
 
+      # Language servers
+      nodePackages.bash-language-server
+      nodePackages.vscode-css-languageserver-bin
+      tailwindcss-language-server
+      gopls
+      nodePackages.vscode-html-languageserver-bin
+      nodePackages.intelephense
+      nodePackages.vscode-json-languageserver
+      lua-language-server
+      marksman
+      yaml-language-server
+      zls
+
       # Development
       tokei
       ## Haskell
