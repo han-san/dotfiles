@@ -2,6 +2,19 @@
 
 {
   xdg.configFile."kak-lsp/kak-lsp.toml".source = ./kak-lsp.toml;
+  xdg.configFile."kak-tree-sitter/config.toml".source = ./kak-tree-sitter.toml;
+  xdg.configFile."kak/colors/catppuccin_mocha.kak".source = pkgs.fetchurl {
+    url = "https://git.sr.ht/~hadronized/kakoune-tree-sitter-themes/blob/ab2de9bd73595be71a02c6a24dd2c1e6ae00a65f/colors/catppuccin/catppuccin_mocha.kak";
+    hash = "sha256-fAcOfZdkGP1dNvr9SLaM6X/xK0+cAyGWgak7+euxjUU=";
+  };
+  xdg.configFile."kak/colors/night-owl.kak".source = pkgs.fetchurl {
+    url = "https://git.sr.ht/~hadronized/kakoune-tree-sitter-themes/blob/ab2de9bd73595be71a02c6a24dd2c1e6ae00a65f/colors/nightowl/night-owl.kak";
+    hash = "sha256-2GNRrw9EnLxyxu9ilvsu65MYzbBU9nFdbuIhCTUiT80=";
+  };
+  xdg.configFile."kak/colors/catppuccin_macchiato.kak".source = pkgs.fetchurl {
+    url = "https://git.sr.ht/~hadronized/kakoune-tree-sitter-themes/blob/ab2de9bd73595be71a02c6a24dd2c1e6ae00a65f/colors/catppuccin/catppuccin_macchiato.kak";
+    hash = "sha256-h4W3bWHdxmoN36zzIyQACaYA2PfoXSjf/hq5mAs8BBE=";
+  };
 
   home.packages = with pkgs; [
     # Required for kakoune-gdb.
@@ -14,7 +27,6 @@
     fzf
   ];
 
-
   programs.kakoune = {
     enable = true;
     config = {
@@ -26,7 +38,7 @@
         columns = 2;
         lines = 3;
       };
-      colorScheme = "gruvbox-dark";
+      colorScheme = null; # The colorscheme should be set AFTER kak-tree-sitter has been started.
       numberLines = {
         enable = true;
         relative = true;
@@ -105,13 +117,14 @@
     };
     extraConfig =
       ''
+        eval %sh{ kak-tree-sitter -dks --with-highlighting --with-text-objects -vvvvv --init $kak_session }
+        colorscheme catppuccin_mocha
         eval %sh{kak-lsp --kakoune -s $kak_session}
         set global lsp_hover_anchor true
         lsp-auto-signature-help-enable
         set-option global lsp_hover_anchor true
         set-option global lsp_auto_show_code_actions true
 
-        add-highlighter global/ regex \b(TODO|FIXME|XXX|NOTE)\b 0:default+rb
         source ${config.home.sessionVariables.PROJECTS_DIR}/impurekaktestrc.kak
       '';
 
@@ -167,11 +180,35 @@
             };
             meta.homepage = "https://github.com/occivink/kakoune-gdb/";
           };
+        kak-tree-sitter =
+          pkgs.rustPlatform.buildRustPackage {
+            pname = "kak-tree-sitter";
+            version = "2024-05-30";
+
+            src = pkgs.fetchFromSourcehut {
+              owner = "~hadronized";
+              repo = "kak-tree-sitter";
+              rev = "295ff83f7606822201f1559434828ab680b271f2";
+              hash = "sha256-XV5eNqlvFmQga1H6DzIqGfoMdWCo4eVstwI/KxGZQbI=";
+            };
+
+            cargoHash = "sha256-VHu11R0/y5sQ45io8M9HlKTv7lAUXUT/XcK/4eC/l6U=";
+
+            nativeBuildInputs = [ pkgs.git ];
+
+            meta = with pkgs.lib; {
+              description = "Server between Kakoune and tree-sitter";
+              homepage = "https://git.sr.ht/~hadronized/kak-tree-sitter";
+              license = with licenses; [ bsd3 ];
+              maintainers = [ "han-san" ];
+              mainProgram = "kak-tree-sitter";
+            };
+          };
       in
       [
+        kak-tree-sitter
         kakoune-lsp
         kak-fzf
-        kakoune-extra-filetypes # Adds highlighting to more filetypes.
         kakoune-mirror
         kak-harpoon
         auto-pairs-kak

@@ -483,17 +483,17 @@ command = "zls"
 # Examples:
 # - TypeScript: https://github.com/microsoft/vscode-languageserver-node/blob/main/client/src/common/semanticTokens.ts
 # - Rust Analyzer: https://github.com/rust-analyzer/rust-analyzer/blob/master/crates/ide/src/syntax_highlighting.rs
-[semantic_tokens]
-faces = [
-    {face="documentation", token="comment", modifiers=["documentation"]},
-    {face="comment", token="comment"},
-    {face="function", token="function"},
-    {face="keyword", token="keyword"},
-    {face="module", token="namespace"},
-    {face="operator", token="operator"},
-    {face="string", token="string"},
-    {face="type", token="type"},
-    {face="default+d", token="variable", modifiers=["readonly"]},
-    {face="default+d", token="variable", modifiers=["constant"]},
-    {face="variable", token="variable"},
-]
+# [semantic_tokens]
+# faces = [
+#     {face="documentation", token="comment", modifiers=["documentation"]},
+#     {face="comment", token="comment"},
+#     {face="function", token="function"},
+#     {face="keyword", token="keyword"},
+#     {face="module", token="namespace"},
+#     {face="operator", token="operator"},
+#     {face="string", token="string"},
+#     {face="type", token="type"},
+#     {face="default+d", token="variable", modifiers=["readonly"]},
+#     {face="default+d", token="variable", modifiers=["constant"]},
+#     {face="variable", token="variable"},
+# ]
