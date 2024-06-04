@@ -1,0 +1,111 @@
+* {
+    border: none;
+    border-radius: 0;
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    min-height: 0;
+    color: white;
+}
+
+window#waybar {
+    background: rgba(43, 48, 59, 0.5);
+    border-bottom: 3px solid transparent;
+}
+
+tooltip {
+    background: rgba(43, 48, 59, 1);
+    border: 1px solid rgba(100, 114, 125, 0.5);
+}
+
+#workspaces button {
+    padding: 0 5px;
+    background: transparent;
+    border-bottom: 3px solid rgba(100, 114, 125, 0.5);
+}
+
+#workspaces button.focused {
+    background: #64727D;
+    border-bottom: 3px solid white;
+}
+
+.modules-left .module:not(#workspaces) {
+    padding: 0 5px;
+}
+
+#privacy-item {
+    background-color: darkorange;
+}
+
+#mode {
+    background-color: green;
+}
+
+.modules-right .module {
+    border-left: 1px solid rgba(100, 114, 125, 0.5);
+    padding: 0 5px;
+}
+
+#language {
+    min-width: 3em;
+}
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: black;
+    }
+}
+
+#cpu.warning {
+    background: darkorange;
+}
+
+#cpu.danger {
+    background: firebrick;
+}
+
+#memory.warning {
+    background: darkorange;
+}
+
+#memory.danger {
+    background: firebrick;
+}
+
+#memory.critical {
+    background: firebrick;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#temperature.critical {
+    background: firebrick;
+}
+
+#disk.warning {
+    background: darkorange;
+}
+
+#disk.danger {
+    background: firebrick;
+}
+
+#battery.warning:not(.charging) {
+    background: darkorange;
+}
+
+#battery.danger:not(.charging) {
+    background: firebrick;
+}
+
+#battery.critical:not(.charging) {
+    background: firebrick;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}

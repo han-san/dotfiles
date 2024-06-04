@@ -56,6 +56,7 @@
   fonts.packages = with pkgs; [
     iosevka
     noto-fonts-cjk
+    font-awesome
   ];
 
   # Enable sound with pipewire.

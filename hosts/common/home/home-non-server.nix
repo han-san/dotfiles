@@ -208,73 +208,156 @@
     };
   };
 
-  programs.i3status = {
+  programs.waybar = {
     enable = true;
-    enableDefault = false;
-    modules = {
-      "load" = {
-        position = 1;
-        settings = {
-          format = "😴 %5min";
-          format_above_threshold = "🤯 %1min %5min";
+    settings = {
+      mainBar = {
+        position = "bottom";
+
+        modules-left = [
+          "sway/workspaces"
+          "sway/scratchpad"
+          "sway/mode"
+          "privacy"
+        ];
+
+        modules-right = [
+          "tray"
+          "idle_inhibitor"
+          "sway/language"
+          "disk"
+          "memory"
+          "cpu"
+          "temperature"
+          "network"
+          "bluetooth"
+          "wireplumber"
+          "power-profiles-daemon"
+          "battery"
+          "clock"
+        ];
+
+        "sway/workspaces" = {
+          disable-scroll = true;
+          all-outputs = true;
         };
-      };
-      "cpu_usage" = {
-        position = 2;
-        settings = {
-          format = "🐹 %usage";
+
+        "sway/scratchpad" = {
+          format = "🗒️ {count}";
         };
-      };
-      "cpu_temperature 0" = {
-        position = 3;
-        settings = {
-          format = "🌡️%degrees°C";
+
+        "privacy" = {
+          icon-size = 13;
+          tooltip-icon-size = 13;
         };
-      };
-      "memory" = {
-        position = 4;
-        settings = {
-          format = "🐏 %available";
+
+        "sway/language" = {
+          format = "⌨️ {}";
+          tooltip-format = "{long}";
         };
-      };
-      "disk /" = {
-        position = 5;
-        settings = {
-          format = "💾 %avail";
+
+        idle_inhibitor = {
+          format = "{icon}";
+          tooltip-format-activated = "Idle inhibit is {status}";
+          tooltip-format-deactivated = "Idle inhibit is {status}";
+          format-icons = {
+              activated = "";
+              deactivated = "";
+          };
         };
-      };
-      "battery 0" = {
-        position = 6;
-        settings = {
-          last_full_capacity = true;
-          format = "%status%percentage %remaining";
-          status_chr = "🔌";
-          status_bat = "🔋";
-          status_unk = "🔋❓";
-          status_full = "🔋👍";
+
+        disk = {
+          format = "💾 {free}";
+          states = {
+            warning = 89;
+            danger = 95;
+          };
         };
-      };
-      "wireless _first_" = {
-        position = 7;
-        settings = {
-          format_up = "🛜 %essid%quality";
-          format_down = "🛜 ⚠️";
+
+        memory = {
+          format = "🐏 {avail}GiB";
+          tooltip-format = "Mem used: {used} / {total}GiB\nSwap used: {swapUsed} / {swapTotal}GiB";
+          states = {
+            warning = 85;
+            danger = 90;
+            critical = 95;
+          };
         };
-      };
-      "volume master" = {
-        position = 8;
-        settings = {
-          format = "🔊 %volume";
-          format_muted = "🔇 %volume";
+
+        cpu = {
+          format = "🐹 {usage}% {load}";
+          states = {
+            warning = 70;
+            danger = 95;
+          };
         };
-      };
-      "time" = {
-        position = 9;
-        settings = {
-          format = "%A %Y-%m-%d %H:%M:%S";
+
+        temperature = {
+          format = "🌡️{temperatureC}°C";
+          tooltip = false;
+          thermal-zone = 8;
+          critical-threshold = 80;
+        };
+
+        network = {
+          format-ethernet = "🌐";
+          format-wifi = "🛜 {essid} {signalStrength}%";
+          format-disconnected = "🛜 ⚠️";
+          tooltip-format = "IP: {ipaddr}/{cidr}\nGateway: {gwaddr}";
+        };
+
+        bluetooth = {
+          format-on = " {status}";
+          format-connected = " {device_alias} {num_connections}";
+          tooltip-format-connected = "Connected devices:\n{device_enumerate}";
+          tooltip-format-enumerate-connected = "{device_alias}";
+        };
+
+        battery = {
+          format = "{icon} {capacity}%";
+          format-charging = "🔌 {capacity}%";
+          format-icons = [ "🪫" "🔋" "🔋" ];
+          states = {
+            warning = 20;
+            danger = 10;
+            critical = 6;
+          };
+        };
+
+        power-profiles-daemon = {
+          format = "{icon}";
+          format-icons = {
+            default = "?";
+            performance = "⚡";
+            balanced = "⚖️";
+            power-saver = "🌱";
+          };
+        };
+
+        wireplumber = {
+          format = "{icon} {volume}%";
+          format-muted = "🔇 {volume}%";
+          format-icons = [ "🔈" "🔉" "🔊" ];
+        };
+
+        tray = {
+          spacing = 5;
+        };
+
+        clock = {
+          format = "{:%a %F %H:%M}";
+          tooltip-format = "<span size='9pt' font='Iosevka'>{calendar}</span>";
+          calendar = {
+            weeks-pos = "left";
+            format = {
+              today = "<span color='firebrick'>{}</span>";
+              weeks = "<span color='yellow'>{} </span>";
+            };
+          };
         };
       };
     };
+    style = ./waybarstyle.css;
   };
 
   programs.swaylock = {
@@ -361,49 +444,9 @@
       };
       gaps.smartBorders = "on";
       workspaceAutoBackAndForth = true;
-      # FIXME: Is it possible to add the current keyboard layout? There's a program called xkblayout-state, but it segfaults. There's an issue on its github that might include a fix, so maybe compiling it from that repo makes it work?
       bars = [
         {
-          mode = "dock";
-          hiddenState = "hide";
-          position = "bottom";
-          workspaceButtons = true;
-          workspaceNumbers = true;
-          fonts = {
-            names = [ "Iosevka" ];
-          };
-          statusCommand = "i3status"; # Create a script as mentioned in i3status' man page and call that to add current keyboard layout.
-          trayOutput = "primary";
-          colors = {
-            background = "#000000";
-            statusline = "#ffffff";
-            separator = "#666666";
-            focusedWorkspace = {
-              border = "#4c7899";
-              background = "#285577";
-              text = "#ffffff";
-            };
-            activeWorkspace = {
-              border = "#333333";
-              background = "#5f676a";
-              text = "#ffffff";
-            };
-            inactiveWorkspace = {
-              border = "#333333";
-              background = "#222222";
-              text = "#888888";
-            };
-            urgentWorkspace = {
-              border = "#2f343a";
-              background = "#900000";
-              text = "#ffffff";
-            };
-            bindingMode = {
-              border = "#2f343a";
-              background = "#900000";
-              text = "#ffffff";
-            };
-          };
+          command = "${pkgs.waybar}/bin/waybar";
         }
       ];
     };
