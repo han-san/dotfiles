@@ -7,7 +7,7 @@
       cp = "cp -iv";
       mv = "mv -iv";
       mkdir = "mkdir -pv";
-      rmdir = "rmdir -pv";
+      rmdir = "rmdir -v";
       rm = "rm -Iv";
 
       cmake = "cmake -DCMAKE_EXPORT_COMPILE_COMMANDS=1";
