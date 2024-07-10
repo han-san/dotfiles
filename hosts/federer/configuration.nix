@@ -11,7 +11,7 @@
       ./hardware-configuration.nix
       ./syncthing.nix
       ./nginx.nix
-      #      ./tinytinyrss.nix
+      ./tinytinyrss.nix
       ../common/configuration.nix
     ];
 
