@@ -4,13 +4,13 @@
 }:
 stdenv.mkDerivation {
   pname = "cppfront";
-  version = "unstable-2023-11-25";
+  version = "0.7.2";
 
   src = fetchFromGitHub {
-    repo = "cppfront";
     owner = "hsutter";
-    rev = "bc828333e0556cbcc59faae9ad7f30cb3d3fb58b";
-    sha256 = "0780gjmd72hmz7k1yadshg2k8pwgjz1wgm9jwa49dbjlgq9wrzqf";
+    repo = "cppfront";
+    rev = "v0.7.2";
+    hash = "sha256-vUhC8EFIhx1m+zT8n39c2fGjxqDbQ93rHfcu6Y7KN5M=";
   };
 
   buildPhase = ''
