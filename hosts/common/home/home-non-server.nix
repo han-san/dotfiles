@@ -445,8 +445,8 @@
           python = "${pkgs.python3}/bin/python3";
         in
         lib.mkOptionDefault {
-          "XF86MonBrightnessDown" = "exec ${light} -S $(${python} -c \"print(max(1, $(${light}) - 10))\") && ${notifier} --hints=string:x-dunst-stack-tag:light --urgency=low Brightness $(${light})";
-          "XF86MonBrightnessUp" = "exec ${light} -A 10 && ${notifier} --hints=string:x-dunst-stack-tag:light --urgency=low Brightness $(${light})";
+          "XF86MonBrightnessDown" = "exec ${light} -S $(${python} -c \"print(max(1, $(${light}) - 1))\") && ${notifier} --hints=string:x-dunst-stack-tag:light --urgency=low Brightness $(${light})";
+          "XF86MonBrightnessUp" = "exec ${light} -A 1 && ${notifier} --hints=string:x-dunst-stack-tag:light --urgency=low Brightness $(${light})";
 
           "XF86AudioRaiseVolume" = "exec ${pamixer} -i 5; exec ${mpv} ${config.home.homeDirectory}/soundeffects/bloop.mp3";
           "XF86AudioLowerVolume" = "exec ${pamixer} -d 5; exec ${mpv} ${config.home.homeDirectory}/soundeffects/bloop.mp3";
