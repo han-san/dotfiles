@@ -317,6 +317,7 @@
           format-wifi = "🛜 {essid} {signalStrength}%";
           format-disconnected = "🛜 ⚠️";
           tooltip-format = "IP: {ipaddr}/{cidr}\nGateway: {gwaddr}";
+          on-click = "${pkgs.foot}/bin/foot nmtui";
         };
 
         bluetooth = {
@@ -324,6 +325,7 @@
           format-connected = " {device_alias} {num_connections}";
           tooltip-format-connected = "Connected devices:\n{device_enumerate}";
           tooltip-format-enumerate-connected = "{device_alias}";
+          on-click = "${pkgs.foot}/bin/foot bluetuith";
         };
 
         battery = {
@@ -351,6 +353,7 @@
           format = "{icon} {volume}%";
           format-muted = "🔇 {volume}%";
           format-icons = [ "🔈" "🔉" "🔊" ];
+          on-click = "${pkgs.pavucontrol}/bin/pavucontrol";
         };
 
         tray = {
