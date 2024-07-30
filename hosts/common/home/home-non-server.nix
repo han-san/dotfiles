@@ -403,6 +403,19 @@
   wayland.windowManager.sway = {
     enable = true;
     wrapperFeatures.gtk = true;
+    # Prevents the extraSessionCommands from causing the build to fail since the files and programs don't exist at that moment in the build process.
+    checkConfig = false;
+    # Makes sure profile files and environment are sourced properly.
+    extraSessionCommands =
+      let
+        etcProfile = "/etc/profile";
+        dotProfile = "${config.home.homeDirectory}/.profile";
+      in
+      ''
+        test -f ${etcProfile} && source ${etcProfile}
+        test -f ${dotProfile} && source ${dotProfile}
+        systemctl --user import-environment
+      '';
     config = {
       input = {
         "*" = {

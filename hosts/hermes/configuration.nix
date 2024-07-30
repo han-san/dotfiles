@@ -131,13 +131,8 @@
     nixpkgs-fmt
   ];
 
+  # Required to add sway to GDM.
   programs.sway.enable = true;
-  # The .profile file doesn't get sourced by default if started through a display manager.
-  programs.sway.extraSessionCommands = ''
-    source /etc/profile
-    test -f ~/.profile && source ~/.profile
-    systemctl --user import-environment
-  '';
 
   programs.steam = {
     enable = true;
