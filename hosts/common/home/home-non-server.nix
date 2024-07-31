@@ -262,6 +262,7 @@
         "privacy" = {
           icon-size = 13;
           tooltip-icon-size = 13;
+          icon-spacing = 0;
         };
 
         "sway/language" = {
@@ -316,6 +317,7 @@
           format-ethernet = "🌐";
           format-wifi = "🛜 {essid} {signalStrength}%";
           format-disconnected = "🛜 ⚠️";
+          format-linked = "{ifname}: no IP";
           tooltip-format = "IP: {ipaddr}/{cidr}\nGateway: {gwaddr}";
           on-click = "${pkgs.foot}/bin/foot nmtui";
         };

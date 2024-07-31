@@ -28,12 +28,19 @@ tooltip {
     border-bottom: 3px solid white;
 }
 
+.modules-left .module:not(#workspaces):first-child {
+    border-left: 1px solid rgba(100, 114, 125, 0.5);
+}
+
 .modules-left .module:not(#workspaces) {
+    border-right: 1px solid rgba(100, 114, 125, 0.5);
     padding: 0 5px;
 }
 
 #privacy-item {
+    border-right: 1px solid rgba(100, 114, 125, 0.5);
     background-color: darkorange;
+    padding: 0 5px;
 }
 
 #mode {
