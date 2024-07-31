@@ -275,8 +275,8 @@
           tooltip-format-activated = "Idle inhibit is {status}";
           tooltip-format-deactivated = "Idle inhibit is {status}";
           format-icons = {
-              activated = "";
-              deactivated = "";
+            activated = "";
+            deactivated = "";
           };
         };
 
