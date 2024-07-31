@@ -132,6 +132,49 @@
     defaultOptions = [ "--bind=ctrl-k:kill-line" ];
   };
 
+  programs.helix = {
+    enable = true;
+    languages = {
+      language-server = {
+        typescript-language-server.config = {
+          implicitProjectConfiguration.checkJs = true;
+        };
+      };
+      language = [
+        {
+          name = "nix";
+          formatter = {
+            command = "nixpkgs-fmt";
+          };
+        }
+      ];
+    };
+    settings = {
+      theme = "gruvbox";
+      editor = {
+        line-number = "relative";
+        color-modes = true;
+        lsp = {
+          display-messages = true;
+          display-inlay-hints = true;
+        };
+        indent-guides = {
+          render = true;
+          skip-levels = 1;
+        };
+      };
+      keys = {
+        normal = { };
+        select = {
+          "C-[" = "normal_mode";
+        };
+        insert = {
+          "C-[" = "normal_mode";
+        };
+      };
+    };
+  };
+
   programs.go = {
     enable = true;
   };
