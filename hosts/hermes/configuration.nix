@@ -149,6 +149,7 @@
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.johan = {
+    shell = pkgs.zsh;
     isNormalUser = true;
     description = "Johan Sandred";
     extraGroups = [

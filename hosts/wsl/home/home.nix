@@ -4,6 +4,7 @@
   imports = [
     ../../common/home/home.nix
     ../../gaia/home/bash.nix
+    ../../gaia/home/zsh.nix
   ];
 
   home = {

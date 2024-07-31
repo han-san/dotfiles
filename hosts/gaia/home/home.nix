@@ -5,6 +5,7 @@
     ../../common/home/home.nix
     ../../common/home/home-non-server.nix
     ./bash.nix
+    ./zsh.nix
   ];
 
   home = {

@@ -4,6 +4,7 @@
   imports = [
     ../../common/home/home.nix
     ./bash.nix
+    ./zsh.nix
   ];
 
   home = {

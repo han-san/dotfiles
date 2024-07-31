@@ -4,6 +4,7 @@
   imports = [
     ./kak/kak.nix
     ./bash.nix
+    ./zsh.nix
     ./neovim/neovim.nix
     ./scripts.nix
   ];
