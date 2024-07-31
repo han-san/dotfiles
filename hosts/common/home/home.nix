@@ -25,6 +25,8 @@
     username = "johan";
     homeDirectory = "/home/johan";
 
+    preferXdgDirectories = true;
+
     sessionVariables = rec {
       LESSHISTFILE = "-";
       DOTNET_CLI_TELEMETRY_OPTOUT = 1;
