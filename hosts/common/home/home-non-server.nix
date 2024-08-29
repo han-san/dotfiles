@@ -208,7 +208,9 @@
     settings = {
       main = {
         font = "Iosevka:size=9";
-        notify = "${pkgs.libnotify}/bin/notify-send -a \${app-id} -i \${app-id} \${title} \${body}";
+      };
+      desktop-notifications = {
+        command = "${pkgs.libnotify}/bin/notify-send -a \${app-id} -i \${app-id} \${title} \${body}";
       };
       csd = {
         color = "ff303030";
