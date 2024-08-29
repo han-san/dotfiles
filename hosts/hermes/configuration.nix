@@ -144,9 +144,6 @@
   programs.adb.enable = true;
   virtualisation.libvirtd.enable = true;
 
-  # Android on linux.
-  virtualisation.waydroid.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.johan = {
     shell = pkgs.zsh;
