@@ -24,17 +24,17 @@
 
   environment.gnome.excludePackages = (with pkgs; [
     gnome-tour
-    gnome.epiphany # browser
-    gnome.geary # mail client
-    gnome.gnome-music
-    gnome.totem # video player
-    gnome.yelp # help viewer
-    gnome.gnome-contacts
-    gnome.gnome-maps
+    epiphany # browser
+    geary # mail client
+    gnome-music
+    totem # video player
+    yelp # help viewer
+    gnome-contacts
+    gnome-maps
   ]);
 
   environment.systemPackages = with pkgs; [
-    gnome.gnome-tweaks
+    gnome-tweaks
     gnomeExtensions.appindicator
     gnomeExtensions.x11-gestures
     touchegg # Required for x11-gestures

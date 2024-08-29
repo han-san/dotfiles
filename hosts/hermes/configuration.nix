@@ -82,7 +82,7 @@
     '')
   ];
 
-  hardware.opengl = {
+  hardware.graphics= {
     enable = true;
     # Don't know which ones are actually necessary.
     extraPackages = with pkgs; [
