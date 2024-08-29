@@ -59,10 +59,9 @@
 
       # Language servers
       nodePackages.bash-language-server
-      nodePackages.vscode-css-languageserver-bin
+      vscode-langservers-extracted
       tailwindcss-language-server
       gopls
-      nodePackages.vscode-html-languageserver-bin
       nodePackages.intelephense
       nodePackages.vscode-json-languageserver
       lua-language-server
