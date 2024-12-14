@@ -429,6 +429,7 @@
         };
         "type:touchpad" = {
           natural_scroll = "enabled";
+          accel_profile = "flat";
         };
         "type:pointer" = {
           accel_profile = "flat";
