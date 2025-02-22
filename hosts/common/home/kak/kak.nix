@@ -192,7 +192,8 @@
               hash = "sha256-XV5eNqlvFmQga1H6DzIqGfoMdWCo4eVstwI/KxGZQbI=";
             };
 
-            cargoHash = "sha256-VHu11R0/y5sQ45io8M9HlKTv7lAUXUT/XcK/4eC/l6U=";
+            useFetchCargoVendor = true;
+            cargoHash = "sha256-50ZxWi2rNQmqldducDQDAPA1K05VsV5zOrmnlSu2LI4=";
 
             nativeBuildInputs = [ pkgs.git ];
 

@@ -16,7 +16,7 @@
     };
 
     # Make sure systray icons work
-    udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
+    udev.packages = [ pkgs.gnome-settings-daemon ];
 
     # Required for x11-gestures.
     touchegg.enable = true;

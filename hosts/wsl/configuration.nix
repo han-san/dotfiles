@@ -69,6 +69,7 @@
   };
 
   home-manager = {
+    extraSpecialArgs = { inherit inputs; };
     useUserPackages = true;
     useGlobalPkgs = true;
     users.johan = import ./home/home.nix;

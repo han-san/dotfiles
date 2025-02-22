@@ -21,7 +21,7 @@
       (pkgs.callPackage ../../common/cppfront.nix { })
       cmake-language-server
       typst
-      typst-lsp
+      tinymist
     ];
   };
 }

@@ -1,18 +1,21 @@
 { config, inputs, pkgs, ... }:
 {
   imports = [
-    inputs.nur.hmModules.nur
+    inputs.nur.modules.homeManager.default
   ];
   programs.firefox = {
     enable = true;
     profiles.default = {
-      extensions = with config.nur.repos.rycee.firefox-addons; [
-        ublock-origin
-        decentraleyes
-        facebook-container
-        keepassxc-browser
-        violentmonkey
-      ];
+      extensions = {
+        packages = with pkgs.nur.repos.rycee.firefox-addons; [
+          ublock-origin
+          decentraleyes
+          facebook-container
+          keepassxc-browser
+          violentmonkey
+        ];
+        # TODO: Add declarative settings for extensions.
+      };
       id = 0;
       settings = {
         # "browser.safebrowsing.malware.enabled" = false;

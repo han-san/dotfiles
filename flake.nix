@@ -29,7 +29,7 @@
         system = "x86_64-linux";
         modules = [
           inputs.sops-nix.nixosModules.sops
-          inputs.nur.nixosModules.nur
+          inputs.nur.modules.nixos.default
           ./hosts/hermes/configuration.nix
         ];
       };
@@ -37,6 +37,7 @@
         specialArgs = { inherit inputs; };
         system = "x86_64-linux";
         modules = [
+          inputs.sops-nix.nixosModules.sops
           ./hosts/wsl/configuration.nix
         ];
       };

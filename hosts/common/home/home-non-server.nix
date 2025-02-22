@@ -48,7 +48,7 @@
       (pkgs.callPackage ../cppfront.nix { })
 
       typst
-      typst-lsp
+      tinymist
       libreoffice
       # Other
       hyperfine
@@ -167,7 +167,7 @@
   programs.vscode = {
     enable = true;
     package = pkgs.vscode.fhs;
-    keybindings =
+    profiles.default.keybindings =
       let
         makeKeyMap = k: c: w:
           {

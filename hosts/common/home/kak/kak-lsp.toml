@@ -18,10 +18,10 @@ typescript = "typescriptreact"
 protobuf = "proto"
 sh = "shellscript"
 
-[language_server.typst-lsp]
+[language_server.tinymist]
 filetypes = ["typst"]
 roots = [".git"]
-command = "typst-lsp"
+command = "tinymist"
 
 [language_server.bash-language-server]
 filetypes = ["sh"]

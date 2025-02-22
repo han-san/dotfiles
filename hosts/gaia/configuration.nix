@@ -63,7 +63,7 @@
 
   fonts.packages = with pkgs; [
     iosevka
-    noto-fonts-cjk
+    noto-fonts-cjk-sans
   ];
 
   # Enable CUPS to print documents.
@@ -71,7 +71,7 @@
 
   # Enable sound with pipewire.
   sound.enable = true;
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;

@@ -58,7 +58,6 @@
     locate = {
       enable = true;
       package = pkgs.plocate;
-      localuser = null; # plocate doesn't support this option.
     };
   };
 
