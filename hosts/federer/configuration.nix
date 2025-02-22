@@ -89,6 +89,7 @@
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINHog6/0hxWQiHsnbomKBn1nLK7smKYfHGk0YcfOVq4n johan@hansan-laptop"
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGxlasMoSJCYmVmT3T8HLmWYqoUX+0NO5gM5xaiRYto7 johan@hansan-desktop"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIB4CbMx7i37/I46p7pKbZbd5++PExlzTIguL7ITajS4A johan@DESKTOP-APUS90T"
     ];
   };
 
